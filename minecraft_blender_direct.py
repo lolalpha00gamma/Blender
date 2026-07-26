@@ -134,22 +134,39 @@ class SimpleMinecraftGenerator:
 
         print(f"✓ Lake generated (radius {radius})")
 
+if __name__ == "__main__":
+    try:
+        generator = SimpleMinecraftGenerator()
+
+        print("=" * 60)
+        print("MINECRAFT TERRAFORMING SYSTEM - BLENDER")
+        print("=" * 60)
+
+        print("\n[1/4] Generating flat terrain...")
+        generator.generate_flat_terrain(width=80, depth=80, height_base=6)
+
+        print("\n[2/4] Generating mega base...")
+        generator.generate_mega_base(center_x=0, center_z=0, size=15)
+
+        print("\n[3/4] Generating forest...")
+        generator.generate_forest(center_x=-40, center_z=0, radius=20, tree_count=15)
+
+        print("\n[4/4] Generating lake...")
+        generator.generate_lake(center_x=40, center_z=0, radius=15)
+
+        print("\n" + "=" * 60)
+        print("✓ GENERATION COMPLETE!")
+        print("=" * 60)
+        print("\nObjects created in your scene!")
+        print("You can now manipulate them in Blender.")
+
+    except Exception as e:
+        print(f"ERROR: {e}")
+        import traceback
+        traceback.print_exc()
+
 generator = SimpleMinecraftGenerator()
-
-print("=" * 60)
-print("MINECRAFT TERRAFORMING SYSTEM - BLENDER")
-print("=" * 60)
-
 generator.generate_flat_terrain(width=80, depth=80, height_base=6)
-
 generator.generate_mega_base(center_x=0, center_z=0, size=15)
-
 generator.generate_forest(center_x=-40, center_z=0, radius=20, tree_count=15)
-
 generator.generate_lake(center_x=40, center_z=0, radius=15)
-
-print("=" * 60)
-print("✓ GENERATION COMPLETE!")
-print("=" * 60)
-print("\nObjects created in your scene!")
-print("You can now manipulate them in Blender.")

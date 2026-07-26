@@ -2900,3 +2900,11235 @@ def build_defensive_palisade_network(world, x1, y1, x2, y2, base_z, height, spac
 
 
 generate()
+def build_themed_structure_group(world, cx, cy, base_z, rng):
+    if i == 0:
+        for x in range(cx - 20, cx + 20):
+            for y in range(cy - 20, cy + 20):
+                if (x + y) % 2 == 0:
+                    world.set(x, y, base_z, 'brick')
+
+    if i == 1:
+        for x in range(cx - 20, cx + 20):
+            for y in range(cy - 20, cy + 20):
+                if (x + y) % 2 == 0:
+                    world.set(x, y, base_z, 'nether_brick')
+
+    if i == 2:
+        for x in range(cx - 20, cx + 20):
+            for y in range(cy - 20, cy + 20):
+                if (x + y) % 2 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+    if i == 3:
+        for x in range(cx - 20, cx + 20):
+            for y in range(cy - 20, cy + 20):
+                if (x + y) % 2 == 0:
+                    world.set(x, y, base_z, 'sand_stone')
+
+    if i == 4:
+        for x in range(cx - 20, cx + 20):
+            for y in range(cy - 20, cy + 20):
+                if (x + y) % 2 == 0:
+                    world.set(x, y, base_z, 'purple_concrete')
+
+    if i == 5:
+        for x in range(cx - 20, cx + 20):
+            for y in range(cy - 20, cy + 20):
+                if (x + y) % 2 == 0:
+                    world.set(x, y, base_z, 'acacia_log')
+
+    if i == 6:
+        for x in range(cx - 20, cx + 20):
+            for y in range(cy - 20, cy + 20):
+                if (x + y) % 2 == 0:
+                    world.set(x, y, base_z, 'ice')
+
+    if i == 7:
+        for x in range(cx - 20, cx + 20):
+            for y in range(cy - 20, cy + 20):
+                if (x + y) % 2 == 0:
+                    world.set(x, y, base_z, 'sand')
+
+
+def build_biome_group(world, cx, cy, base_z, biome_id, rng):
+    if biome_id == 0:
+        for x in range(cx - 30, cx + 30):
+            for y in range(cy - 30, cy + 30):
+                dist = ((x - cx) ** 2 + (y - cy) ** 2) ** 0.5
+                if dist <= 30:
+                    world.set(x, y, base_z, 'grass')
+
+    if biome_id == 1:
+        for x in range(cx - 30, cx + 30):
+            for y in range(cy - 30, cy + 30):
+                dist = ((x - cx) ** 2 + (y - cy) ** 2) ** 0.5
+                if dist <= 30:
+                    world.set(x, y, base_z, 'oak')
+
+    if biome_id == 2:
+        for x in range(cx - 30, cx + 30):
+            for y in range(cy - 30, cy + 30):
+                dist = ((x - cx) ** 2 + (y - cy) ** 2) ** 0.5
+                if dist <= 30:
+                    world.set(x, y, base_z, 'stone')
+
+    if biome_id == 3:
+        for x in range(cx - 30, cx + 30):
+            for y in range(cy - 30, cy + 30):
+                dist = ((x - cx) ** 2 + (y - cy) ** 2) ** 0.5
+                if dist <= 30:
+                    world.set(x, y, base_z, 'sand')
+
+    if biome_id == 4:
+        for x in range(cx - 30, cx + 30):
+            for y in range(cy - 30, cy + 30):
+                dist = ((x - cx) ** 2 + (y - cy) ** 2) ** 0.5
+                if dist <= 30:
+                    world.set(x, y, base_z, 'water')
+
+    if biome_id == 5:
+        for x in range(cx - 30, cx + 30):
+            for y in range(cy - 30, cy + 30):
+                dist = ((x - cx) ** 2 + (y - cy) ** 2) ** 0.5
+                if dist <= 30:
+                    world.set(x, y, base_z, 'dirt')
+
+    if biome_id == 6:
+        for x in range(cx - 30, cx + 30):
+            for y in range(cy - 30, cy + 30):
+                dist = ((x - cx) ** 2 + (y - cy) ** 2) ** 0.5
+                if dist <= 30:
+                    world.set(x, y, base_z, 'snow')
+
+    if biome_id == 7:
+        for x in range(cx - 30, cx + 30):
+            for y in range(cy - 30, cy + 30):
+                dist = ((x - cx) ** 2 + (y - cy) ** 2) ** 0.5
+                if dist <= 30:
+                    world.set(x, y, base_z, 'leaves')
+
+
+def build_settlement_system(world, cx, cy, base_z, system_id, rng):
+    if system_id == 0:
+        world.fill_box(cx - 10, cy - 10, base_z, cx + 10, cy + 10, base_z + 3, 'farm')
+        for x in range(cx - 5, cx + 5):
+            for y in range(cy - 5, cy + 5):
+                world.set(x, y, base_z + 1, 'hay')
+
+    if system_id == 1:
+        world.fill_box(cx - 7, cy - 7, base_z, cx + 7, cy + 7, base_z + 3, 'marketplace')
+        for x in range(cx - 3, cx + 3):
+            for y in range(cy - 3, cy + 3):
+                world.set(x, y, base_z + 1, 'wood')
+
+    if system_id == 2:
+        world.fill_box(cx - 12, cy - 12, base_z, cx + 12, cy + 12, base_z + 3, 'barracks')
+        for x in range(cx - 6, cx + 6):
+            for y in range(cy - 6, cy + 6):
+                world.set(x, y, base_z + 1, 'brick')
+
+    if system_id == 3:
+        world.fill_box(cx - 9, cy - 9, base_z, cx + 9, cy + 9, base_z + 3, 'furnace')
+        for x in range(cx - 4, cx + 4):
+            for y in range(cy - 4, cy + 4):
+                world.set(x, y, base_z + 1, 'stone')
+
+    if system_id == 4:
+        world.fill_box(cx - 8, cy - 8, base_z, cx + 8, cy + 8, base_z + 3, 'library')
+        for x in range(cx - 4, cx + 4):
+            for y in range(cy - 4, cy + 4):
+                world.set(x, y, base_z + 1, 'bookshelf')
+
+    if system_id == 5:
+        world.fill_box(cx - 6, cy - 6, base_z, cx + 6, cy + 6, base_z + 3, 'healing')
+        for x in range(cx - 3, cx + 3):
+            for y in range(cy - 3, cy + 3):
+                world.set(x, y, base_z + 1, 'planks')
+
+    if system_id == 6:
+        world.fill_box(cx - 7, cy - 7, base_z, cx + 7, cy + 7, base_z + 3, 'station')
+        for x in range(cx - 3, cx + 3):
+            for y in range(cy - 3, cy + 3):
+                world.set(x, y, base_z + 1, 'cobblestone')
+
+    if system_id == 7:
+        world.fill_box(cx - 11, cy - 11, base_z, cx + 11, cy + 11, base_z + 3, 'plaza')
+        for x in range(cx - 5, cx + 5):
+            for y in range(cy - 5, cy + 5):
+                world.set(x, y, base_z + 1, 'stone')
+
+
+def build_multi_structure_layout(world, cx, cy, base_z, layout_type, rng):
+    if layout_type == 'grid':
+        for i in range(5):
+            for j in range(5):
+                struct_x = cx - 40 + i * 20
+                struct_y = cy - 40 + j * 20
+                world.fill_box(struct_x - 5, struct_y - 5, base_z, struct_x + 5, struct_y + 5, base_z + 3, 'brick')
+
+    elif layout_type == 'circular':
+        import math
+        for i in range(8):
+            angle = (i / 8) * 2 * math.pi
+            struct_x = cx + int(40 * math.cos(angle))
+            struct_y = cy + int(40 * math.sin(angle))
+            world.fill_box(struct_x - 4, struct_y - 4, base_z, struct_x + 4, struct_y + 4, base_z + 3, 'stone')
+
+
+def build_procedural_structure_000(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 3) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_001(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 4) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_002(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 5) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_003(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 6) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_004(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 7) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_005(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 8) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_006(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 9) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_007(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 10) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_008(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 11) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_009(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 12) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_010(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 13) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_011(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 14) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_012(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 15) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_013(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 16) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_014(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 17) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_015(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 18) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_016(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 19) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_017(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 20) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_018(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 21) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_019(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 22) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_020(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 23) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_021(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 24) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_022(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 25) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_023(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 26) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_024(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 27) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_025(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 28) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_026(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 29) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_027(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 30) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_028(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 31) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_029(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 32) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_030(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 33) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_031(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 34) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_032(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 35) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_033(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 36) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_034(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 37) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_035(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 38) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_036(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 39) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_037(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 40) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_038(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 41) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_039(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 42) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_040(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 43) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_041(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 44) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_042(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 45) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_043(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 46) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_044(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 47) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_045(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 48) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_046(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 49) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_047(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 50) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_048(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 51) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_procedural_structure_049(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for y in range(cy - size, cy + size):
+            for z in range(base_z, base_z + 5):
+                if ((x + y + z) % 52) == 0:
+                    mat = 'stone' if (x % 2) == 0 else 'brick'
+                    world.set(x, y, z, mat)
+
+
+def build_pattern_structure_000(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_001(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_002(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_003(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_004(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_005(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_006(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_007(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_008(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_009(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_010(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_011(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_012(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_013(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_014(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_015(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_016(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_017(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_018(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_019(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_020(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_021(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_022(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_023(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_024(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_025(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_026(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_027(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_028(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_029(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_030(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_031(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_032(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_033(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_034(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_035(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_036(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_037(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_038(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_039(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_040(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_041(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_042(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_043(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_044(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_045(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_046(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_047(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_048(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_049(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_050(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_051(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_052(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_053(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_054(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_055(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_056(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_057(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_058(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_059(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_060(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_061(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_062(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_063(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_064(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_065(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_066(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_067(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_068(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_069(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_070(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_071(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_072(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_073(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_074(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_075(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_pattern_structure_076(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and dist % 3 == 0:
+                world.set(x, y, base_z, 'stone')
+
+
+def build_pattern_structure_077(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and int(dist) % 2 == 0:
+                for z in range(base_z, base_z + 4):
+                    world.set(x, y, z, 'brick')
+
+
+def build_pattern_structure_078(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            angle = math.atan2(y - cy, x - cx)
+            if dist <= radius and int(angle * 10) % 3 == 0:
+                world.set(x, y, base_z, 'quartz_block')
+
+
+def build_pattern_structure_079(world, cx, cy, base_z, radius, rng):
+    for x in range(cx - radius, cx + radius):
+        for y in range(cy - radius, cy + radius):
+            dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+            if dist <= radius and (x + y) % 4 == 0:
+                world.set(x, y, base_z, 'sand')
+
+
+def build_terrain_modifier_000(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_001(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_002(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_003(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_004(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_005(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_006(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_007(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_008(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_009(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_010(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_011(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_012(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_013(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_014(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_015(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_016(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_017(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_018(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_019(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_020(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_021(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_022(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_023(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_024(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_025(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_026(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_027(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_028(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_029(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_030(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_031(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_032(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_033(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_034(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_035(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_036(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_037(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_038(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_039(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_040(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_041(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_042(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_043(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_044(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_045(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_046(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_047(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_048(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_049(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_050(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_051(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_052(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_053(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_054(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_055(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_056(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_terrain_modifier_057(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            for z in range(base_z - 3, base_z + 1):
+                if rng.random() < modifier_strength * 0.3:
+                    world.set(x, y, z, 'gravel')
+
+
+def build_terrain_modifier_058(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            height = int(modifier_strength * 5 * math.sin(x * 0.1))
+            for z in range(base_z, base_z + height):
+                world.set(x, y, z, 'stone')
+
+
+def build_terrain_modifier_059(world, cx, cy, base_z, width, depth, modifier_strength, rng):
+    for x in range(cx - width // 2, cx + width // 2):
+        for y in range(cy - depth // 2, cy + depth // 2):
+            if rng.random() < modifier_strength * 0.5:
+                world.set(x, y, base_z - 1, 'water')
+
+
+def build_utility_system_000(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 2, cx + size // 2, 2):
+        for y in range(cy - size // 2, cy + size // 2, 2):
+            world.set(x, y, base_z, 'cobblestone')
+
+
+def build_utility_system_001(world, cx, cy, base_z, size, rng):
+    for ring in range(1, size // 4):
+        for angle_deg in range(0, 360, 15):
+            angle_rad = math.radians(angle_deg)
+            x = cx + int(ring * 3 * math.cos(angle_rad))
+            y = cy + int(ring * 3 * math.sin(angle_rad))
+            world.set(x, y, base_z, 'brick')
+
+
+def build_utility_system_002(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for z in range(base_z, base_z + size // 2):
+            if (x - cx) % 3 == 0 and z % 2 == 0:
+                world.set(x, cy, z, 'wood')
+
+
+def build_utility_system_003(world, cx, cy, base_z, size, rng):
+    for i in range(size):
+        angle = (i / size) * 2 * math.pi
+        x = cx + int((size - 5) * math.cos(angle))
+        y = cy + int((size - 5) * math.sin(angle))
+        world.set(x, y, base_z, 'stone')
+
+
+def build_utility_system_004(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 3, cx + size // 3):
+        for y in range(cy - size // 3, cy + size // 3):
+            if rng.random() < 0.6:
+                world.set(x, y, base_z, 'grass')
+
+
+def build_utility_system_005(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 2, cx + size // 2, 2):
+        for y in range(cy - size // 2, cy + size // 2, 2):
+            world.set(x, y, base_z, 'cobblestone')
+
+
+def build_utility_system_006(world, cx, cy, base_z, size, rng):
+    for ring in range(1, size // 4):
+        for angle_deg in range(0, 360, 15):
+            angle_rad = math.radians(angle_deg)
+            x = cx + int(ring * 3 * math.cos(angle_rad))
+            y = cy + int(ring * 3 * math.sin(angle_rad))
+            world.set(x, y, base_z, 'brick')
+
+
+def build_utility_system_007(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for z in range(base_z, base_z + size // 2):
+            if (x - cx) % 3 == 0 and z % 2 == 0:
+                world.set(x, cy, z, 'wood')
+
+
+def build_utility_system_008(world, cx, cy, base_z, size, rng):
+    for i in range(size):
+        angle = (i / size) * 2 * math.pi
+        x = cx + int((size - 5) * math.cos(angle))
+        y = cy + int((size - 5) * math.sin(angle))
+        world.set(x, y, base_z, 'stone')
+
+
+def build_utility_system_009(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 3, cx + size // 3):
+        for y in range(cy - size // 3, cy + size // 3):
+            if rng.random() < 0.6:
+                world.set(x, y, base_z, 'grass')
+
+
+def build_utility_system_010(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 2, cx + size // 2, 2):
+        for y in range(cy - size // 2, cy + size // 2, 2):
+            world.set(x, y, base_z, 'cobblestone')
+
+
+def build_utility_system_011(world, cx, cy, base_z, size, rng):
+    for ring in range(1, size // 4):
+        for angle_deg in range(0, 360, 15):
+            angle_rad = math.radians(angle_deg)
+            x = cx + int(ring * 3 * math.cos(angle_rad))
+            y = cy + int(ring * 3 * math.sin(angle_rad))
+            world.set(x, y, base_z, 'brick')
+
+
+def build_utility_system_012(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for z in range(base_z, base_z + size // 2):
+            if (x - cx) % 3 == 0 and z % 2 == 0:
+                world.set(x, cy, z, 'wood')
+
+
+def build_utility_system_013(world, cx, cy, base_z, size, rng):
+    for i in range(size):
+        angle = (i / size) * 2 * math.pi
+        x = cx + int((size - 5) * math.cos(angle))
+        y = cy + int((size - 5) * math.sin(angle))
+        world.set(x, y, base_z, 'stone')
+
+
+def build_utility_system_014(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 3, cx + size // 3):
+        for y in range(cy - size // 3, cy + size // 3):
+            if rng.random() < 0.6:
+                world.set(x, y, base_z, 'grass')
+
+
+def build_utility_system_015(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 2, cx + size // 2, 2):
+        for y in range(cy - size // 2, cy + size // 2, 2):
+            world.set(x, y, base_z, 'cobblestone')
+
+
+def build_utility_system_016(world, cx, cy, base_z, size, rng):
+    for ring in range(1, size // 4):
+        for angle_deg in range(0, 360, 15):
+            angle_rad = math.radians(angle_deg)
+            x = cx + int(ring * 3 * math.cos(angle_rad))
+            y = cy + int(ring * 3 * math.sin(angle_rad))
+            world.set(x, y, base_z, 'brick')
+
+
+def build_utility_system_017(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for z in range(base_z, base_z + size // 2):
+            if (x - cx) % 3 == 0 and z % 2 == 0:
+                world.set(x, cy, z, 'wood')
+
+
+def build_utility_system_018(world, cx, cy, base_z, size, rng):
+    for i in range(size):
+        angle = (i / size) * 2 * math.pi
+        x = cx + int((size - 5) * math.cos(angle))
+        y = cy + int((size - 5) * math.sin(angle))
+        world.set(x, y, base_z, 'stone')
+
+
+def build_utility_system_019(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 3, cx + size // 3):
+        for y in range(cy - size // 3, cy + size // 3):
+            if rng.random() < 0.6:
+                world.set(x, y, base_z, 'grass')
+
+
+def build_utility_system_020(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 2, cx + size // 2, 2):
+        for y in range(cy - size // 2, cy + size // 2, 2):
+            world.set(x, y, base_z, 'cobblestone')
+
+
+def build_utility_system_021(world, cx, cy, base_z, size, rng):
+    for ring in range(1, size // 4):
+        for angle_deg in range(0, 360, 15):
+            angle_rad = math.radians(angle_deg)
+            x = cx + int(ring * 3 * math.cos(angle_rad))
+            y = cy + int(ring * 3 * math.sin(angle_rad))
+            world.set(x, y, base_z, 'brick')
+
+
+def build_utility_system_022(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for z in range(base_z, base_z + size // 2):
+            if (x - cx) % 3 == 0 and z % 2 == 0:
+                world.set(x, cy, z, 'wood')
+
+
+def build_utility_system_023(world, cx, cy, base_z, size, rng):
+    for i in range(size):
+        angle = (i / size) * 2 * math.pi
+        x = cx + int((size - 5) * math.cos(angle))
+        y = cy + int((size - 5) * math.sin(angle))
+        world.set(x, y, base_z, 'stone')
+
+
+def build_utility_system_024(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 3, cx + size // 3):
+        for y in range(cy - size // 3, cy + size // 3):
+            if rng.random() < 0.6:
+                world.set(x, y, base_z, 'grass')
+
+
+def build_utility_system_025(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 2, cx + size // 2, 2):
+        for y in range(cy - size // 2, cy + size // 2, 2):
+            world.set(x, y, base_z, 'cobblestone')
+
+
+def build_utility_system_026(world, cx, cy, base_z, size, rng):
+    for ring in range(1, size // 4):
+        for angle_deg in range(0, 360, 15):
+            angle_rad = math.radians(angle_deg)
+            x = cx + int(ring * 3 * math.cos(angle_rad))
+            y = cy + int(ring * 3 * math.sin(angle_rad))
+            world.set(x, y, base_z, 'brick')
+
+
+def build_utility_system_027(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for z in range(base_z, base_z + size // 2):
+            if (x - cx) % 3 == 0 and z % 2 == 0:
+                world.set(x, cy, z, 'wood')
+
+
+def build_utility_system_028(world, cx, cy, base_z, size, rng):
+    for i in range(size):
+        angle = (i / size) * 2 * math.pi
+        x = cx + int((size - 5) * math.cos(angle))
+        y = cy + int((size - 5) * math.sin(angle))
+        world.set(x, y, base_z, 'stone')
+
+
+def build_utility_system_029(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 3, cx + size // 3):
+        for y in range(cy - size // 3, cy + size // 3):
+            if rng.random() < 0.6:
+                world.set(x, y, base_z, 'grass')
+
+
+def build_utility_system_030(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 2, cx + size // 2, 2):
+        for y in range(cy - size // 2, cy + size // 2, 2):
+            world.set(x, y, base_z, 'cobblestone')
+
+
+def build_utility_system_031(world, cx, cy, base_z, size, rng):
+    for ring in range(1, size // 4):
+        for angle_deg in range(0, 360, 15):
+            angle_rad = math.radians(angle_deg)
+            x = cx + int(ring * 3 * math.cos(angle_rad))
+            y = cy + int(ring * 3 * math.sin(angle_rad))
+            world.set(x, y, base_z, 'brick')
+
+
+def build_utility_system_032(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for z in range(base_z, base_z + size // 2):
+            if (x - cx) % 3 == 0 and z % 2 == 0:
+                world.set(x, cy, z, 'wood')
+
+
+def build_utility_system_033(world, cx, cy, base_z, size, rng):
+    for i in range(size):
+        angle = (i / size) * 2 * math.pi
+        x = cx + int((size - 5) * math.cos(angle))
+        y = cy + int((size - 5) * math.sin(angle))
+        world.set(x, y, base_z, 'stone')
+
+
+def build_utility_system_034(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 3, cx + size // 3):
+        for y in range(cy - size // 3, cy + size // 3):
+            if rng.random() < 0.6:
+                world.set(x, y, base_z, 'grass')
+
+
+def build_utility_system_035(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 2, cx + size // 2, 2):
+        for y in range(cy - size // 2, cy + size // 2, 2):
+            world.set(x, y, base_z, 'cobblestone')
+
+
+def build_utility_system_036(world, cx, cy, base_z, size, rng):
+    for ring in range(1, size // 4):
+        for angle_deg in range(0, 360, 15):
+            angle_rad = math.radians(angle_deg)
+            x = cx + int(ring * 3 * math.cos(angle_rad))
+            y = cy + int(ring * 3 * math.sin(angle_rad))
+            world.set(x, y, base_z, 'brick')
+
+
+def build_utility_system_037(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for z in range(base_z, base_z + size // 2):
+            if (x - cx) % 3 == 0 and z % 2 == 0:
+                world.set(x, cy, z, 'wood')
+
+
+def build_utility_system_038(world, cx, cy, base_z, size, rng):
+    for i in range(size):
+        angle = (i / size) * 2 * math.pi
+        x = cx + int((size - 5) * math.cos(angle))
+        y = cy + int((size - 5) * math.sin(angle))
+        world.set(x, y, base_z, 'stone')
+
+
+def build_utility_system_039(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 3, cx + size // 3):
+        for y in range(cy - size // 3, cy + size // 3):
+            if rng.random() < 0.6:
+                world.set(x, y, base_z, 'grass')
+
+
+def build_utility_system_040(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 2, cx + size // 2, 2):
+        for y in range(cy - size // 2, cy + size // 2, 2):
+            world.set(x, y, base_z, 'cobblestone')
+
+
+def build_utility_system_041(world, cx, cy, base_z, size, rng):
+    for ring in range(1, size // 4):
+        for angle_deg in range(0, 360, 15):
+            angle_rad = math.radians(angle_deg)
+            x = cx + int(ring * 3 * math.cos(angle_rad))
+            y = cy + int(ring * 3 * math.sin(angle_rad))
+            world.set(x, y, base_z, 'brick')
+
+
+def build_utility_system_042(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for z in range(base_z, base_z + size // 2):
+            if (x - cx) % 3 == 0 and z % 2 == 0:
+                world.set(x, cy, z, 'wood')
+
+
+def build_utility_system_043(world, cx, cy, base_z, size, rng):
+    for i in range(size):
+        angle = (i / size) * 2 * math.pi
+        x = cx + int((size - 5) * math.cos(angle))
+        y = cy + int((size - 5) * math.sin(angle))
+        world.set(x, y, base_z, 'stone')
+
+
+def build_utility_system_044(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 3, cx + size // 3):
+        for y in range(cy - size // 3, cy + size // 3):
+            if rng.random() < 0.6:
+                world.set(x, y, base_z, 'grass')
+
+
+def build_utility_system_045(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 2, cx + size // 2, 2):
+        for y in range(cy - size // 2, cy + size // 2, 2):
+            world.set(x, y, base_z, 'cobblestone')
+
+
+def build_utility_system_046(world, cx, cy, base_z, size, rng):
+    for ring in range(1, size // 4):
+        for angle_deg in range(0, 360, 15):
+            angle_rad = math.radians(angle_deg)
+            x = cx + int(ring * 3 * math.cos(angle_rad))
+            y = cy + int(ring * 3 * math.sin(angle_rad))
+            world.set(x, y, base_z, 'brick')
+
+
+def build_utility_system_047(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for z in range(base_z, base_z + size // 2):
+            if (x - cx) % 3 == 0 and z % 2 == 0:
+                world.set(x, cy, z, 'wood')
+
+
+def build_utility_system_048(world, cx, cy, base_z, size, rng):
+    for i in range(size):
+        angle = (i / size) * 2 * math.pi
+        x = cx + int((size - 5) * math.cos(angle))
+        y = cy + int((size - 5) * math.sin(angle))
+        world.set(x, y, base_z, 'stone')
+
+
+def build_utility_system_049(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 3, cx + size // 3):
+        for y in range(cy - size // 3, cy + size // 3):
+            if rng.random() < 0.6:
+                world.set(x, y, base_z, 'grass')
+
+
+def build_utility_system_050(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 2, cx + size // 2, 2):
+        for y in range(cy - size // 2, cy + size // 2, 2):
+            world.set(x, y, base_z, 'cobblestone')
+
+
+def build_utility_system_051(world, cx, cy, base_z, size, rng):
+    for ring in range(1, size // 4):
+        for angle_deg in range(0, 360, 15):
+            angle_rad = math.radians(angle_deg)
+            x = cx + int(ring * 3 * math.cos(angle_rad))
+            y = cy + int(ring * 3 * math.sin(angle_rad))
+            world.set(x, y, base_z, 'brick')
+
+
+def build_utility_system_052(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for z in range(base_z, base_z + size // 2):
+            if (x - cx) % 3 == 0 and z % 2 == 0:
+                world.set(x, cy, z, 'wood')
+
+
+def build_utility_system_053(world, cx, cy, base_z, size, rng):
+    for i in range(size):
+        angle = (i / size) * 2 * math.pi
+        x = cx + int((size - 5) * math.cos(angle))
+        y = cy + int((size - 5) * math.sin(angle))
+        world.set(x, y, base_z, 'stone')
+
+
+def build_utility_system_054(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 3, cx + size // 3):
+        for y in range(cy - size // 3, cy + size // 3):
+            if rng.random() < 0.6:
+                world.set(x, y, base_z, 'grass')
+
+
+def build_utility_system_055(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 2, cx + size // 2, 2):
+        for y in range(cy - size // 2, cy + size // 2, 2):
+            world.set(x, y, base_z, 'cobblestone')
+
+
+def build_utility_system_056(world, cx, cy, base_z, size, rng):
+    for ring in range(1, size // 4):
+        for angle_deg in range(0, 360, 15):
+            angle_rad = math.radians(angle_deg)
+            x = cx + int(ring * 3 * math.cos(angle_rad))
+            y = cy + int(ring * 3 * math.sin(angle_rad))
+            world.set(x, y, base_z, 'brick')
+
+
+def build_utility_system_057(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for z in range(base_z, base_z + size // 2):
+            if (x - cx) % 3 == 0 and z % 2 == 0:
+                world.set(x, cy, z, 'wood')
+
+
+def build_utility_system_058(world, cx, cy, base_z, size, rng):
+    for i in range(size):
+        angle = (i / size) * 2 * math.pi
+        x = cx + int((size - 5) * math.cos(angle))
+        y = cy + int((size - 5) * math.sin(angle))
+        world.set(x, y, base_z, 'stone')
+
+
+def build_utility_system_059(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 3, cx + size // 3):
+        for y in range(cy - size // 3, cy + size // 3):
+            if rng.random() < 0.6:
+                world.set(x, y, base_z, 'grass')
+
+
+def build_utility_system_060(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 2, cx + size // 2, 2):
+        for y in range(cy - size // 2, cy + size // 2, 2):
+            world.set(x, y, base_z, 'cobblestone')
+
+
+def build_utility_system_061(world, cx, cy, base_z, size, rng):
+    for ring in range(1, size // 4):
+        for angle_deg in range(0, 360, 15):
+            angle_rad = math.radians(angle_deg)
+            x = cx + int(ring * 3 * math.cos(angle_rad))
+            y = cy + int(ring * 3 * math.sin(angle_rad))
+            world.set(x, y, base_z, 'brick')
+
+
+def build_utility_system_062(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for z in range(base_z, base_z + size // 2):
+            if (x - cx) % 3 == 0 and z % 2 == 0:
+                world.set(x, cy, z, 'wood')
+
+
+def build_utility_system_063(world, cx, cy, base_z, size, rng):
+    for i in range(size):
+        angle = (i / size) * 2 * math.pi
+        x = cx + int((size - 5) * math.cos(angle))
+        y = cy + int((size - 5) * math.sin(angle))
+        world.set(x, y, base_z, 'stone')
+
+
+def build_utility_system_064(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 3, cx + size // 3):
+        for y in range(cy - size // 3, cy + size // 3):
+            if rng.random() < 0.6:
+                world.set(x, y, base_z, 'grass')
+
+
+def build_utility_system_065(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 2, cx + size // 2, 2):
+        for y in range(cy - size // 2, cy + size // 2, 2):
+            world.set(x, y, base_z, 'cobblestone')
+
+
+def build_utility_system_066(world, cx, cy, base_z, size, rng):
+    for ring in range(1, size // 4):
+        for angle_deg in range(0, 360, 15):
+            angle_rad = math.radians(angle_deg)
+            x = cx + int(ring * 3 * math.cos(angle_rad))
+            y = cy + int(ring * 3 * math.sin(angle_rad))
+            world.set(x, y, base_z, 'brick')
+
+
+def build_utility_system_067(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size, cx + size):
+        for z in range(base_z, base_z + size // 2):
+            if (x - cx) % 3 == 0 and z % 2 == 0:
+                world.set(x, cy, z, 'wood')
+
+
+def build_utility_system_068(world, cx, cy, base_z, size, rng):
+    for i in range(size):
+        angle = (i / size) * 2 * math.pi
+        x = cx + int((size - 5) * math.cos(angle))
+        y = cy + int((size - 5) * math.sin(angle))
+        world.set(x, y, base_z, 'stone')
+
+
+def build_utility_system_069(world, cx, cy, base_z, size, rng):
+    for x in range(cx - size // 3, cx + size // 3):
+        for y in range(cy - size // 3, cy + size // 3):
+            if rng.random() < 0.6:
+                world.set(x, y, base_z, 'grass')
+
+
+def build_composite_structure_000(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_001(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_002(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_003(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_004(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_005(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_006(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_007(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_008(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_009(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_010(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_011(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_012(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_013(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_014(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_015(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_016(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_017(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_018(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_019(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_020(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_021(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_022(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_023(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_024(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_025(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_026(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_027(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_028(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_029(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_030(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_031(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_032(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_033(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_034(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_035(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_036(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_037(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_038(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_composite_structure_039(world, cx, cy, base_z, components, rng):
+    for comp_idx, component in enumerate(components):
+        offset_x = (comp_idx % 3 - 1) * 15
+        offset_y = (comp_idx // 3 - 1) * 15
+        comp_x = cx + offset_x
+        comp_y = cy + offset_y
+        if component == 'tower':
+            for z in range(base_z, base_z + 10):
+                world.set(comp_x, comp_y, z, 'brick')
+        elif component == 'platform':
+            world.fill_box(comp_x - 4, comp_y - 4, base_z, comp_x + 4, comp_y + 4, base_z, 'stone')
+        elif component == 'garden':
+            world.set(comp_x, comp_y, base_z, 'grass')
+
+
+def build_advanced_layout_000(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_001(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_002(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_003(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_004(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_005(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_006(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_007(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_008(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_009(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_010(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_011(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_012(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_013(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_014(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_015(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_016(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_017(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_018(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_019(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_020(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_021(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_022(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_023(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_024(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_025(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_026(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_027(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_028(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_029(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_030(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_031(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_032(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_033(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_034(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_035(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_036(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_037(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_038(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_039(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_040(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_041(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_042(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_043(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_044(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_045(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_046(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_047(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_048(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_049(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_050(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_051(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_052(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_053(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_054(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_055(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_056(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_057(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_058(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_059(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_060(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_061(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_062(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_063(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_064(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_065(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_066(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_067(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_068(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_069(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_070(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_071(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_072(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_073(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_074(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_075(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_076(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_077(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_078(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_079(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_080(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_081(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_082(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_083(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_084(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_085(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_086(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_087(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_088(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_089(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_090(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_091(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_092(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_093(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_094(world, cx, cy, base_z, scale, rng):
+    pattern_type = 4
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_095(world, cx, cy, base_z, scale, rng):
+    pattern_type = 5
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_096(world, cx, cy, base_z, scale, rng):
+    pattern_type = 0
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_097(world, cx, cy, base_z, scale, rng):
+    pattern_type = 1
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_098(world, cx, cy, base_z, scale, rng):
+    pattern_type = 2
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_advanced_layout_099(world, cx, cy, base_z, scale, rng):
+    pattern_type = 3
+    if pattern_type == 0:
+        for x in range(cx - scale, cx + scale, scale // 5):
+            for y in range(cy - scale, cy + scale, scale // 5):
+                world.fill_box(x - 2, y - 2, base_z, x + 2, y + 2, base_z + 2, 'brick')
+    elif pattern_type == 1:
+        for i in range(16):
+            angle = (i / 16) * 2 * math.pi
+            x = cx + int(scale * math.cos(angle))
+            y = cy + int(scale * math.sin(angle))
+            world.fill_box(x - 1, y - 1, base_z, x + 1, y + 1, base_z + 2, 'stone')
+    elif pattern_type == 2:
+        for x in range(cx - scale, cx + scale):
+            world.set(x, cy, base_z, 'obsidian')
+        for y in range(cy - scale, cy + scale):
+            world.set(cx, y, base_z, 'obsidian')
+    elif pattern_type == 3:
+        for layer in range(scale // 10):
+            for x in range(cx - scale + layer * 2, cx + scale - layer * 2):
+                for y in range(cy - scale + layer * 2, cy + scale - layer * 2):
+                    if layer % 2 == 0:
+                        world.set(x, y, base_z + layer, 'glass')
+    elif pattern_type == 4:
+        for i in range(scale):
+            x = cx + int((i - scale / 2) * 0.5)
+            y = cy + int((i - scale / 2) * 0.5)
+            world.set(x, y, base_z, 'planks')
+    else:
+        for x in range(cx - scale, cx + scale):
+            for y in range(cy - scale, cy + scale):
+                dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
+                if dist <= scale and int(dist) % 3 == 0:
+                    world.set(x, y, base_z, 'quartz_block')
+
+
+def build_feature_variation_000(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 0
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_001(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 1
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_002(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 2
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_003(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 3
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_004(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 4
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_005(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 5
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_006(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 0
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_007(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 1
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_008(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 2
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_009(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 3
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_010(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 4
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_011(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 5
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_012(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 0
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_013(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 1
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_014(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 2
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_015(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 3
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_016(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 4
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_017(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 5
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_018(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 0
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_019(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 1
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_020(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 2
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_021(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 3
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_022(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 4
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_023(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 5
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_024(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 0
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_025(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 1
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_026(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 2
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_027(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 3
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_028(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 4
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_029(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 5
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_030(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 0
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_031(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 1
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_032(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 2
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_033(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 3
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_034(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 4
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_035(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 5
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_036(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 0
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_037(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 1
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_038(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 2
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_039(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 3
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_040(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 4
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_041(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 5
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_042(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 0
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_043(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 1
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_044(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 2
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_045(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 3
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_046(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 4
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_047(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 5
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_048(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 0
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_049(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 1
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_050(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 2
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_051(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 3
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_052(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 4
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_053(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 5
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_054(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 0
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_055(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 1
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_056(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 2
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_057(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 3
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_058(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 4
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_059(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 5
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_060(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 0
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_061(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 1
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_062(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 2
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_063(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 3
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_064(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 4
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_065(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 5
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_066(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 0
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_067(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 1
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_068(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 2
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_069(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 3
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_070(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 4
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_071(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 5
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_072(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 0
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_073(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 1
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_074(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 2
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_075(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 3
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_076(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 4
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 2 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_077(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 5
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 3 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_078(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 0
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 4 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_feature_variation_079(world, cx, cy, base_z, size, variation, rng):
+    materials = ['stone', 'brick', 'sand', 'gravel', 'obsidian', 'quartz_block']
+    mat_index = 1
+    primary_material = materials[mat_index]
+    for x in range(cx - size // 2, cx + size // 2):
+        for y in range(cy - size // 2, cy + size // 2):
+            for z in range(base_z, base_z + 3):
+                if (x + y + z) % 5 == 0:
+                    world.set(x, y, z, primary_material)
+
+
+def build_megastructure_section_000(world, cx, cy, base_z, section_size, rng):
+    section_type = 0
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_001(world, cx, cy, base_z, section_size, rng):
+    section_type = 1
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_002(world, cx, cy, base_z, section_size, rng):
+    section_type = 2
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_003(world, cx, cy, base_z, section_size, rng):
+    section_type = 3
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_004(world, cx, cy, base_z, section_size, rng):
+    section_type = 4
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_005(world, cx, cy, base_z, section_size, rng):
+    section_type = 5
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_006(world, cx, cy, base_z, section_size, rng):
+    section_type = 6
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_007(world, cx, cy, base_z, section_size, rng):
+    section_type = 0
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_008(world, cx, cy, base_z, section_size, rng):
+    section_type = 1
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_009(world, cx, cy, base_z, section_size, rng):
+    section_type = 2
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_010(world, cx, cy, base_z, section_size, rng):
+    section_type = 3
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_011(world, cx, cy, base_z, section_size, rng):
+    section_type = 4
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_012(world, cx, cy, base_z, section_size, rng):
+    section_type = 5
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_013(world, cx, cy, base_z, section_size, rng):
+    section_type = 6
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_014(world, cx, cy, base_z, section_size, rng):
+    section_type = 0
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_015(world, cx, cy, base_z, section_size, rng):
+    section_type = 1
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_016(world, cx, cy, base_z, section_size, rng):
+    section_type = 2
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_017(world, cx, cy, base_z, section_size, rng):
+    section_type = 3
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_018(world, cx, cy, base_z, section_size, rng):
+    section_type = 4
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_019(world, cx, cy, base_z, section_size, rng):
+    section_type = 5
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_020(world, cx, cy, base_z, section_size, rng):
+    section_type = 6
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_021(world, cx, cy, base_z, section_size, rng):
+    section_type = 0
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_022(world, cx, cy, base_z, section_size, rng):
+    section_type = 1
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_023(world, cx, cy, base_z, section_size, rng):
+    section_type = 2
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_024(world, cx, cy, base_z, section_size, rng):
+    section_type = 3
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_025(world, cx, cy, base_z, section_size, rng):
+    section_type = 4
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_026(world, cx, cy, base_z, section_size, rng):
+    section_type = 5
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_027(world, cx, cy, base_z, section_size, rng):
+    section_type = 6
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_028(world, cx, cy, base_z, section_size, rng):
+    section_type = 0
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_029(world, cx, cy, base_z, section_size, rng):
+    section_type = 1
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_030(world, cx, cy, base_z, section_size, rng):
+    section_type = 2
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_031(world, cx, cy, base_z, section_size, rng):
+    section_type = 3
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_032(world, cx, cy, base_z, section_size, rng):
+    section_type = 4
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_033(world, cx, cy, base_z, section_size, rng):
+    section_type = 5
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_034(world, cx, cy, base_z, section_size, rng):
+    section_type = 6
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_035(world, cx, cy, base_z, section_size, rng):
+    section_type = 0
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_036(world, cx, cy, base_z, section_size, rng):
+    section_type = 1
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_037(world, cx, cy, base_z, section_size, rng):
+    section_type = 2
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_038(world, cx, cy, base_z, section_size, rng):
+    section_type = 3
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_039(world, cx, cy, base_z, section_size, rng):
+    section_type = 4
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_040(world, cx, cy, base_z, section_size, rng):
+    section_type = 5
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_041(world, cx, cy, base_z, section_size, rng):
+    section_type = 6
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_042(world, cx, cy, base_z, section_size, rng):
+    section_type = 0
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_043(world, cx, cy, base_z, section_size, rng):
+    section_type = 1
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_044(world, cx, cy, base_z, section_size, rng):
+    section_type = 2
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_045(world, cx, cy, base_z, section_size, rng):
+    section_type = 3
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_046(world, cx, cy, base_z, section_size, rng):
+    section_type = 4
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_047(world, cx, cy, base_z, section_size, rng):
+    section_type = 5
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_048(world, cx, cy, base_z, section_size, rng):
+    section_type = 6
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_049(world, cx, cy, base_z, section_size, rng):
+    section_type = 0
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_050(world, cx, cy, base_z, section_size, rng):
+    section_type = 1
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_051(world, cx, cy, base_z, section_size, rng):
+    section_type = 2
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_052(world, cx, cy, base_z, section_size, rng):
+    section_type = 3
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_053(world, cx, cy, base_z, section_size, rng):
+    section_type = 4
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_054(world, cx, cy, base_z, section_size, rng):
+    section_type = 5
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_055(world, cx, cy, base_z, section_size, rng):
+    section_type = 6
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_056(world, cx, cy, base_z, section_size, rng):
+    section_type = 0
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_057(world, cx, cy, base_z, section_size, rng):
+    section_type = 1
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_058(world, cx, cy, base_z, section_size, rng):
+    section_type = 2
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_059(world, cx, cy, base_z, section_size, rng):
+    section_type = 3
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_060(world, cx, cy, base_z, section_size, rng):
+    section_type = 4
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_061(world, cx, cy, base_z, section_size, rng):
+    section_type = 5
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_062(world, cx, cy, base_z, section_size, rng):
+    section_type = 6
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_063(world, cx, cy, base_z, section_size, rng):
+    section_type = 0
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_064(world, cx, cy, base_z, section_size, rng):
+    section_type = 1
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_065(world, cx, cy, base_z, section_size, rng):
+    section_type = 2
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_066(world, cx, cy, base_z, section_size, rng):
+    section_type = 3
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_067(world, cx, cy, base_z, section_size, rng):
+    section_type = 4
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_068(world, cx, cy, base_z, section_size, rng):
+    section_type = 5
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_069(world, cx, cy, base_z, section_size, rng):
+    section_type = 6
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_070(world, cx, cy, base_z, section_size, rng):
+    section_type = 0
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_071(world, cx, cy, base_z, section_size, rng):
+    section_type = 1
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_072(world, cx, cy, base_z, section_size, rng):
+    section_type = 2
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_073(world, cx, cy, base_z, section_size, rng):
+    section_type = 3
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_074(world, cx, cy, base_z, section_size, rng):
+    section_type = 4
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_075(world, cx, cy, base_z, section_size, rng):
+    section_type = 5
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_076(world, cx, cy, base_z, section_size, rng):
+    section_type = 6
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_077(world, cx, cy, base_z, section_size, rng):
+    section_type = 0
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_078(world, cx, cy, base_z, section_size, rng):
+    section_type = 1
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_079(world, cx, cy, base_z, section_size, rng):
+    section_type = 2
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_080(world, cx, cy, base_z, section_size, rng):
+    section_type = 3
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_081(world, cx, cy, base_z, section_size, rng):
+    section_type = 4
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_082(world, cx, cy, base_z, section_size, rng):
+    section_type = 5
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_083(world, cx, cy, base_z, section_size, rng):
+    section_type = 6
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_084(world, cx, cy, base_z, section_size, rng):
+    section_type = 0
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_085(world, cx, cy, base_z, section_size, rng):
+    section_type = 1
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_086(world, cx, cy, base_z, section_size, rng):
+    section_type = 2
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_087(world, cx, cy, base_z, section_size, rng):
+    section_type = 3
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_088(world, cx, cy, base_z, section_size, rng):
+    section_type = 4
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+
+
+def build_megastructure_section_089(world, cx, cy, base_z, section_size, rng):
+    section_type = 5
+    if section_type == 0:
+        for level in range(section_size // 5):
+            level_z = base_z + level * 3
+            level_size = section_size - level * 2
+            world.fill_box(cx - level_size // 2, cy - level_size // 2, level_z,
+                           cx + level_size // 2, cy + level_size // 2, level_z + 1, 'brick')
+    elif section_type == 1:
+        for ring in range(1, section_size // 3, 2):
+            for angle_deg in range(0, 360, 30):
+                angle_rad = math.radians(angle_deg)
+                x = cx + int(ring * math.cos(angle_rad))
+                y = cy + int(ring * math.sin(angle_rad))
+                world.set(x, y, base_z, 'stone')
+    elif section_type == 2:
+        world.fill_box(cx - section_size // 2, cy - section_size // 2, base_z,
+                       cx + section_size // 2, cy + section_size // 2, base_z + section_size // 4, 'obsidian')
+    elif section_type == 3:
+        for x in range(cx - section_size // 2, cx + section_size // 2, 3):
+            for y in range(cy - section_size // 2, cy + section_size // 2, 3):
+                for z in range(base_z, base_z + 5):
+                    world.set(x, y, z, 'quartz_block')
+    elif section_type == 4:
+        for i in range(section_size // 2):
+            angle = (i / (section_size // 2)) * 4 * math.pi
+            x = cx + int((i * 0.5) * math.cos(angle))
+            y = cy + int((i * 0.5) * math.sin(angle))
+            world.set(x, y, base_z, 'glass')
+    elif section_type == 5:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            dist_from_center = abs(x - cx)
+            height = section_size // 2 - dist_from_center
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                for z in range(base_z, base_z + max(0, height)):
+                    world.set(x, y, z, 'sand')
+    else:
+        for x in range(cx - section_size // 2, cx + section_size // 2):
+            for y in range(cy - section_size // 2, cy + section_size // 2):
+                if rng.random() < 0.5:
+                    world.set(x, y, base_z, 'gravel')
+

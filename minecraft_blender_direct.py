@@ -365,7 +365,8 @@ def build_multistorey_building(world, cx, cy, base_z, width, depth, floors,
                                 floor_height=4, wall_material="brick",
                                 floor_material="planks", roof_material="roof_red",
                                 window_material="glass_pane", door_side="south",
-                                rng=None, furnish=None):
+                                rng=None, furnish=None, flat_roof=False,
+                                corner_pillars=False, pillar_material="quartz"):
     """Builds a fully enclosed, floor-by-floor building with windows, an
     internal staircase connecting every level, and an optional furnishing
     callback per floor. Nothing floats: floor N sits directly on the
@@ -391,6 +392,10 @@ def build_multistorey_building(world, cx, cy, base_z, width, depth, floors,
         carve_windows_along_wall(world, x0, y0, x1, y0, z0, z1, spacing=3, material=window_material)
         carve_windows_along_wall(world, x0, y1, x1, y1, z0, z1, spacing=3, material=window_material)
 
+        if corner_pillars:
+            for px, py in ((x0, y0), (x1, y0), (x0, y1), (x1, y1)):
+                build_pillar(world, px, py, z0, z1, material=pillar_material)
+
         if floor == 0:
             door_x = cx
             if door_side == "south":
@@ -415,10 +420,11 @@ def build_multistorey_building(world, cx, cy, base_z, width, depth, floors,
             furnish(world, x0, y0, x1, y1, z0 + 1, rng)
 
     roof_z = base_z + floors * floor_height
-    for z in range(base_z, roof_z):
-        pass
-    build_pitched_roof(world, x0, y0, x1, y1, roof_z, material=roof_material,
-                        axis="x" if width >= depth else "y")
+    if flat_roof:
+        build_flat_roof(world, x0, y0, x1, y1, roof_z, material=roof_material, trim_material="iron_block")
+    else:
+        build_pitched_roof(world, x0, y0, x1, y1, roof_z, material=roof_material,
+                            axis="x" if width >= depth else "y")
 
     return x0, y0, x1, y1, roof_z
 
@@ -427,17 +433,109 @@ def build_multistorey_building(world, cx, cy, base_z, width, depth, floors,
 # Named base facilities (all grounded, all detailed, all connected)
 # ---------------------------------------------------------------------------
 
-def build_command_center(world, cx, cy, base_z, rng):
+def build_central_tower(world, cx, cy, base_z, floors=20, floor_height=4, width=20, depth=20, rng=None):
+    """The Ultra-Mega-Base's centerpiece skyscraper. Wide reinforced base,
+    tapering slightly every few floors, glass crown on top, four corner
+    pillars running the full height, and a ring balcony every 5 floors."""
+    if rng is None:
+        rng = random.Random(99)
+
+    x0, x1 = cx - width // 2, cx + width // 2
+    y0, y1 = cy - depth // 2, cy + depth // 2
+    stair_x = x0 + 1
+
+    current_w, current_d = width, depth
+    for floor in range(floors):
+        z0 = base_z + floor * floor_height
+        z1 = z0 + floor_height - 1
+
+        taper = (floor // 6)
+        cw = max(10, width - taper * 2)
+        cd = max(10, depth - taper * 2)
+        fx0, fx1 = cx - cw // 2, cx + cw // 2
+        fy0, fy1 = cy - cd // 2, cy + cd // 2
+
+        wall_mat = "concrete_light" if floor % 2 == 0 else "concrete"
+        for z in range(z0, z1 + 1):
+            world.fill_rect_outline(fx0, fy0, z, fx1, fy1, wall_mat)
+        world.fill_box(fx0, fy0, z0, fx1, fy1, z0, "quartz")
+
+        carve_windows_along_wall(world, fx0, fy0, fx0, fy1, z0, z1, spacing=2, material="glass")
+        carve_windows_along_wall(world, fx1, fy0, fx1, fy1, z0, z1, spacing=2, material="glass")
+        carve_windows_along_wall(world, fx0, fy0, fx1, fy0, z0, z1, spacing=2, material="glass")
+        carve_windows_along_wall(world, fx0, fy1, fx1, fy1, z0, z1, spacing=2, material="glass")
+
+        for px, py in ((fx0, fy0), (fx1, fy0), (fx0, fy1), (fx1, fy1)):
+            build_pillar(world, px, py, z0, z1, material="iron_block")
+
+        if floor == 0:
+            build_door_gap(world, cx, fy0, z0, height=3)
+            build_door_gap(world, cx - 1, fy0, z0, height=3)
+            build_door_gap(world, cx + 1, fy0, z0, height=3)
+
+        if floor < floors - 1:
+            for z in range(z0 + 1, z1 + 1):
+                world.clear(stair_x, fy0 + 1, z)
+            world.set(stair_x, fy0 + 1, z0, "planks")
+
+        if floor % 5 == 0 and floor > 0:
+            for x in range(fx0 - 1, fx1 + 2):
+                world.set(x, fy0 - 1, z0, "iron_block")
+                world.set(x, fy1 + 1, z0, "iron_block")
+            for y in range(fy0 - 1, fy1 + 2):
+                world.set(fx0 - 1, y, z0, "iron_block")
+                world.set(fx1 + 1, y, z0, "iron_block")
+            for x in range(fx0 - 1, fx1 + 2, 3):
+                world.set(x, fy0 - 1, z0 + 1, "fence")
+                world.set(x, fy1 + 1, z0 + 1, "fence")
+
+        place_lanterns(world, fx0, fy0, fx1, fy1, z1, spacing=6)
+
+        if floor == floors // 2:
+            furnish_library_shelves(world, fx0, fy0, fx1, fy1, z0 + 1, z1, rng)
+        elif floor % 4 == 0:
+            furnish_workshop(world, fx0, fy0, fx1, fy1, z0 + 1, rng)
+        elif floor % 4 == 1:
+            furnish_storage_room(world, fx0, fy0, fx1, fy1, z0 + 1, rng)
+
+        current_w, current_d = cw, cd
+
+    top_z = base_z + floors * floor_height
+    crown_w, crown_d = max(8, current_w - 4), max(8, current_d - 4)
+    cx0, cx1 = cx - crown_w // 2, cx + crown_w // 2
+    cy0, cy1 = cy - crown_d // 2, cy + crown_d // 2
+    for z in range(top_z, top_z + 6):
+        world.fill_rect_outline(cx0, cy0, z, cx1, cy1, "glass")
+    build_flat_roof(world, cx0, cy0, cx1, cy1, top_z + 6, material="quartz", trim_material="iron_block")
+    build_pillar(world, cx, cy, top_z + 6, top_z + 12, material="iron_block", cap_material="lantern")
+
+    return x0, y0, x1, y1, top_z + 12
+
+
+def build_district_tower(world, cx, cy, base_z, floors, width, depth, wall_material,
+                          roof_material, window_material, rng, flat_roof=False, furnish=None):
     return build_multistorey_building(
-        world, cx, cy, base_z, width=24, depth=24, floors=4,
-        floor_height=5, wall_material="concrete_light",
-        floor_material="quartz", roof_material="iron_block",
-        window_material="glass", door_side="south", rng=rng,
-        furnish=lambda w, x0, y0, x1, y1, z, r: (
-            lay_carpet(w, x0, y0, x1, y1, z, "carpet_red"),
-            furnish_workshop(w, x0, y0, x1, y1, z, r),
-        )
+        world, cx, cy, base_z, width=width, depth=depth, floors=floors,
+        floor_height=4, wall_material=wall_material, floor_material="stone",
+        roof_material=roof_material, window_material=window_material,
+        door_side="south", rng=rng, furnish=furnish, flat_roof=flat_roof,
+        corner_pillars=True, pillar_material="iron_block",
     )
+
+
+def build_residential_block(world, cx, cy, base_z, rng, unit_count=6):
+    """A row of tall residential towers sharing a common plaza and street."""
+    positions = []
+    for i in range(unit_count):
+        ux = cx - (unit_count - 1) * 14 // 2 + i * 14
+        floors = rng.randint(5, 9)
+        build_district_tower(world, ux, cy, base_z, floors, 10, 10,
+                              "brick", "roof_dark", "glass_pane", rng,
+                              furnish=furnish_storage_room)
+        positions.append((ux, cy))
+        build_road(world, ux, cy - 6, ux, cy - 1, base_z, width=2)
+    build_road(world, positions[0][0], cy - 7, positions[-1][0], cy - 7, base_z, width=4)
+    return positions
 
 
 def build_storage_warehouse(world, cx, cy, base_z, rng):
@@ -448,6 +546,78 @@ def build_storage_warehouse(world, cx, cy, base_z, rng):
         window_material="glass_pane", door_side="west", rng=rng,
         furnish=furnish_storage_room
     )
+    return x0, y0, x1, y1, roof_z
+
+
+def build_industrial_district(world, cx, cy, base_z, rng):
+    """Multiple large smelteries/factories arranged around a central yard,
+    linked by internal roads and topped with smokestacks."""
+    layout = [(-24, -18), (24, -18), (-24, 18), (24, 18)]
+    for dx, dy in layout:
+        fx, fy = cx + dx, cy + dy
+        x0, y0, x1, y1, roof_z = build_district_tower(
+            world, fx, fy, base_z, floors=2, width=18, depth=16,
+            wall_material="cobblestone", roof_material="obsidian",
+            window_material="glass_pane", rng=rng, flat_roof=True,
+            furnish=furnish_workshop,
+        )
+        stack_x, stack_y = (x0 + x1) // 2, (y0 + y1) // 2
+        build_pillar(world, stack_x, stack_y, roof_z, roof_z + 8, material="obsidian")
+        build_road(world, fx, fy, cx, cy, base_z, width=3)
+    build_fountain_plaza(world, cx, cy, base_z, radius=10)
+    return cx, cy
+
+
+def build_agricultural_district(world, cx, cy, base_z, rng):
+    """A grid of large farm complexes plus grain silos and a big barn,
+    fenced as one contiguous zone."""
+    build_farm_complex(world, cx - 40, cy, base_z, rng, rows=10, cols=14)
+    build_farm_complex(world, cx + 40, cy, base_z, rng, rows=10, cols=14)
+    build_farm_complex(world, cx, cy + 45, base_z, rng, rows=8, cols=16)
+
+    for i in range(3):
+        silo_x = cx - 15 + i * 15
+        silo_y = cy - 25
+        build_pillar(world, silo_x, silo_y, base_z, base_z + 12, material="iron_block")
+        world.fill_sphere(silo_x, silo_y, base_z + 13, 2, "quartz")
+
+    build_road(world, cx - 40, cy, cx + 40, cy, base_z, width=4)
+    build_road(world, cx, cy, cx, cy + 45, base_z, width=4)
+
+
+def build_academic_district(world, cx, cy, base_z, rng):
+    build_district_tower(world, cx - 20, cy, base_z, floors=3, width=20, depth=16,
+                          wall_material="brick", roof_material="roof_dark",
+                          window_material="glass", rng=rng,
+                          furnish=furnish_library_shelves and (lambda w, x0, y0, x1, y1, z, r: furnish_library_shelves(w, x0, y0, x1, y1, z, z + 3, r)))
+    build_district_tower(world, cx + 20, cy, base_z, floors=2, width=16, depth=14,
+                          wall_material="concrete_light", roof_material="iron_block",
+                          window_material="glass", rng=rng, flat_roof=True,
+                          furnish=furnish_workshop)
+    build_road(world, cx - 20, cy, cx + 20, cy, base_z, width=3)
+
+
+def build_military_district(world, cx, cy, base_z, rng):
+    build_barracks(world, cx, cy, base_z, rng, units=6)
+    build_watchtower(world, cx - 26, cy - 14, base_z, height=24, radius=3)
+    build_watchtower(world, cx + 26, cy - 14, base_z, height=24, radius=3)
+    build_perimeter_wall(world, cx, cy, 70, base_z, height=7, gate_width=6)
+
+
+def build_barracks(world, cx, cy, base_z, rng, units=4):
+    width = units * 6 + 4
+    x0, y0, x1, y1, roof_z = build_multistorey_building(
+        world, cx, cy, base_z, width=width, depth=14, floors=1,
+        floor_height=4, wall_material="cobblestone",
+        floor_material="planks", roof_material="roof_dark",
+        window_material="glass_pane", door_side="south", rng=rng,
+    )
+    for i in range(units):
+        wall_x = x0 + 4 + i * 6
+        for z in range(base_z + 1, base_z + 4):
+            world.set(wall_x, cy - 3, z, "cobblestone")
+            world.set(wall_x, cy + 3, z, "cobblestone")
+        world.set(wall_x, cy, base_z + 1, "chest")
     return x0, y0, x1, y1, roof_z
 
 
@@ -488,63 +658,20 @@ def build_farm_complex(world, cx, cy, base_z, rng, rows=8, cols=10):
     return x0, y0, x1, y1
 
 
-def build_smeltery(world, cx, cy, base_z, rng):
-    x0, y0, x1, y1, roof_z = build_multistorey_building(
-        world, cx, cy, base_z, width=16, depth=14, floors=1,
-        floor_height=6, wall_material="cobblestone",
-        floor_material="stone", roof_material="obsidian",
-        window_material="glass_pane", door_side="south", rng=rng,
-        furnish=lambda w, xa, ya, xb, yb, z, r: (
-            furnish_workshop(w, xa, ya, xb, yb, z, r),
-        )
-    )
-    for x in range((x0 + x1) // 2 - 1, (x0 + x1) // 2 + 2):
-        for y in range((y0 + y1) // 2 - 1, (y0 + y1) // 2 + 2):
-            world.set(x, y, roof_z, "obsidian")
-            world.set(x, y, roof_z + 1, "obsidian")
-    world.set((x0 + x1) // 2, (y0 + y1) // 2, roof_z + 2, "obsidian")
-    return x0, y0, x1, y1, roof_z
-
-
-def build_library(world, cx, cy, base_z, rng):
-    x0, y0, x1, y1, roof_z = build_multistorey_building(
-        world, cx, cy, base_z, width=18, depth=14, floors=2,
-        floor_height=4, wall_material="brick",
-        floor_material="planks", roof_material="roof_dark",
-        window_material="glass", door_side="south", rng=rng,
-        furnish=lambda w, xa, ya, xb, yb, z, r: furnish_library_shelves(w, xa, ya, xb, yb, z, z + 3, r)
-    )
-    return x0, y0, x1, y1, roof_z
-
-
-def build_barracks(world, cx, cy, base_z, rng, units=4):
-    width = units * 6 + 4
-    x0, y0, x1, y1, roof_z = build_multistorey_building(
-        world, cx, cy, base_z, width=width, depth=14, floors=1,
-        floor_height=4, wall_material="cobblestone",
-        floor_material="planks", roof_material="roof_dark",
-        window_material="glass_pane", door_side="south", rng=rng,
-    )
-    for i in range(units):
-        wall_x = x0 + 4 + i * 6
-        for z in range(base_z + 1, base_z + 4):
-            world.set(wall_x, cy - 3, z, "cobblestone")
-            world.set(wall_x, cy + 3, z, "cobblestone")
-        world.set(wall_x, cy, base_z + 1, "chest")
-    return x0, y0, x1, y1, roof_z
-
-
-# ---------------------------------------------------------------------------
-# Perimeter, towers, gates, bridges — connective tissue of the megabase
-# ---------------------------------------------------------------------------
-
 def build_watchtower(world, cx, cy, base_z, height=22, radius=3, rng=None):
     for z in range(base_z, base_z + height):
-        for angle_deg in range(0, 360, 30):
+        for angle_deg in range(0, 360, 20):
             angle = math.radians(angle_deg)
             x = cx + int(round(radius * math.cos(angle)))
             y = cy + int(round(radius * math.sin(angle)))
             world.set(x, y, z, "cobblestone")
+            angle2 = math.radians(angle_deg + 20)
+            x2 = cx + int(round(radius * math.cos(angle2)))
+            y2 = cy + int(round(radius * math.sin(angle2)))
+            steps = max(abs(x2 - x), abs(y2 - y), 1)
+            for s in range(steps + 1):
+                t = s / steps
+                world.set(int(round(x + (x2 - x) * t)), int(round(y + (y2 - y) * t)), z, "cobblestone")
 
     for z in range(base_z, base_z + height, 6):
         for angle_deg in range(0, 360, 15):
@@ -566,11 +693,10 @@ def build_watchtower(world, cx, cy, base_z, height=22, radius=3, rng=None):
                 for z in range(top + 1, top + 3):
                     world.set(x, y, z, "cobblestone")
     world.set(cx, cy, top + 4, "lantern")
-    build_ladder_shaft(world, cx, cy - radius + 1, base_z + 1, top - 1, material=None)
     return top
 
 
-def build_perimeter_wall(world, cx, cy, size, base_z, height=8, gate_width=6):
+def build_perimeter_wall(world, cx, cy, size, base_z, height=8, gate_width=6, ring="cobblestone"):
     half = size // 2
     x0, x1 = cx - half, cx + half
     y0, y1 = cy - half, cy + half
@@ -578,20 +704,20 @@ def build_perimeter_wall(world, cx, cy, size, base_z, height=8, gate_width=6):
     for x in range(x0, x1 + 1):
         if abs(x - cx) > gate_width // 2:
             for z in range(base_z, base_z + height):
-                world.set(x, y0, z, "cobblestone")
+                world.set(x, y0, z, ring)
         for z in range(base_z, base_z + height):
-            world.set(x, y1, z, "cobblestone")
+            world.set(x, y1, z, ring)
 
     for y in range(y0, y1 + 1):
         for z in range(base_z, base_z + height):
-            world.set(x0, y, z, "cobblestone")
-            world.set(x1, y, z, "cobblestone")
+            world.set(x0, y, z, ring)
+            world.set(x1, y, z, ring)
 
-    for x in range(x0, x1 + 1, 8):
+    for x in range(x0, x1 + 1, 6):
         for z in range(base_z + height - 2, base_z + height):
             world.set(x, y0, z, "brick")
             world.set(x, y1, z, "brick")
-    for y in range(y0, y1 + 1, 8):
+    for y in range(y0, y1 + 1, 6):
         for z in range(base_z + height - 2, base_z + height):
             world.set(x0, y, z, "brick")
             world.set(x1, y, z, "brick")
@@ -600,32 +726,58 @@ def build_perimeter_wall(world, cx, cy, size, base_z, height=8, gate_width=6):
         for z in range(base_z + height, base_z + height + 2):
             world.set(gx, y0, z, "iron_block")
 
-    for corner_x in (x0, x1):
-        for corner_y in (y0, y1):
-            build_watchtower(world, corner_x, corner_y, base_z, height=height + 10, radius=2)
-
     return x0, y0, x1, y1
 
 
-def build_bridge(world, x1, y1, x2, y2, z, width=3, material="planks", rail_material="fence"):
+def build_double_wall_ring(world, cx, cy, base_z, outer_size, inner_offset, height, gate_width, rng):
+    """Two concentric fortress walls with corner towers on both rings and
+    connecting cross-walls, forming the true 'ultra mega base' perimeter."""
+    ox0, oy0, ox1, oy1 = build_perimeter_wall(world, cx, cy, outer_size, base_z,
+                                               height=height, gate_width=gate_width, ring="cobblestone")
+    inner_size = outer_size - inner_offset
+    ix0, iy0, ix1, iy1 = build_perimeter_wall(world, cx, cy, inner_size, base_z,
+                                               height=height - 3, gate_width=gate_width, ring="stone")
+
+    for corner_x in (ox0, ox1):
+        for corner_y in (oy0, oy1):
+            build_watchtower(world, corner_x, corner_y, base_z, height=height + 14, radius=3)
+
+    for corner_x in (ix0, ix1):
+        for corner_y in (iy0, iy1):
+            build_watchtower(world, corner_x, corner_y, base_z, height=height + 6, radius=2)
+
+    mid_x = (ox0 + ix0) // 2
+    for gy in (oy0, oy1):
+        build_road(world, ox0, gy, ix0, gy, base_z, width=3, material="cobblestone")
+
+    return ox0, oy0, ox1, oy1
+
+
+def build_sky_bridge(world, x1, y1, x2, y2, z, width=4, material="quartz", rail_material="iron_block"):
     steps = max(abs(x2 - x1), abs(y2 - y1))
     if steps == 0:
         return
+    horizontal = abs(x1 - x2) >= abs(y1 - y2)
     for step in range(steps + 1):
         t = step / steps
         x = int(round(x1 + (x2 - x1) * t))
         y = int(round(y1 + (y2 - y1) * t))
         for w in range(-width // 2, width // 2 + 1):
-            if abs(x1 - x2) >= abs(y1 - y2):
+            if horizontal:
                 world.set(x, y + w, z, material)
             else:
                 world.set(x + w, y, z, material)
-        if abs(x1 - x2) >= abs(y1 - y2):
-            world.set(x, y - width // 2, z + 1, rail_material)
-            world.set(x, y + width // 2, z + 1, rail_material)
+        if horizontal:
+            world.set(x, y - width // 2 - 1, z + 1, rail_material)
+            world.set(x, y + width // 2 + 1, z + 1, rail_material)
         else:
-            world.set(x - width // 2, y, z + 1, rail_material)
-            world.set(x + width // 2, y, z + 1, rail_material)
+            world.set(x - width // 2 - 1, y, z + 1, rail_material)
+            world.set(x + width // 2 + 1, y, z + 1, rail_material)
+        for support_z in range(0, z):
+            if horizontal and (x % 8 == 0):
+                world.set(x, y, support_z, material)
+            elif not horizontal and (y % 8 == 0):
+                world.set(x, y, support_z, material)
 
 
 def build_utility_tunnel(world, x1, y1, x2, y2, base_z, height=3, width=3, material="concrete"):
@@ -662,62 +814,74 @@ def build_fountain_plaza(world, cx, cy, base_z, radius=8):
 
 
 # ---------------------------------------------------------------------------
-# Master assembly — everything grounded, everything connected by road/bridge
+# Master assembly — the Ultra-Mega-Base
+#
+# Layout: one giant fortress ring (double wall, 8 corner/gate towers) at
+# ~450x450, a 20-storey central skyscraper as the anchor, five full
+# districts (residential, industrial, agricultural, academic, military)
+# arranged around it, all linked at ground level by a road grid AND by
+# elevated sky-bridges radiating from the tower, plus underground utility
+# tunnels. Every single structure sits on solid ground or is physically
+# supported by pillars/bridges reaching the ground — nothing free-floats.
 # ---------------------------------------------------------------------------
 
-def generate(width=260, depth=260, ground_z=0):
+def generate(width=520, depth=520, ground_z=0):
     world = VoxelWorld()
     rng = random.Random(1337)
     base_z = ground_z + 1
 
     build_flat_terrain(world, width, depth, ground_z)
 
-    perimeter_size = 220
-    build_perimeter_wall(world, 0, 0, perimeter_size, ground_z + 1, height=9, gate_width=8)
+    ox0, oy0, ox1, oy1 = build_double_wall_ring(world, 0, 0, ground_z + 1,
+                                                 outer_size=460, inner_offset=30,
+                                                 height=12, gate_width=10, rng=rng)
 
-    build_fountain_plaza(world, 0, 0, base_z, radius=10)
+    tower_x0, tower_y0, tower_x1, tower_y1, tower_top = build_central_tower(
+        world, 0, 0, base_z, floors=20, floor_height=4, width=26, depth=26, rng=rng
+    )
 
-    cc_x0, cc_y0, cc_x1, cc_y1, cc_roof = build_command_center(world, 0, 30, base_z, rng)
+    district_positions = {
+        "residential": (-150, -150),
+        "industrial": (150, -150),
+        "agricultural": (0, 170),
+        "academic": (-150, 150),
+        "military": (150, 150),
+    }
 
-    wh1 = build_storage_warehouse(world, -70, 0, base_z, rng)
-    wh2 = build_storage_warehouse(world, 70, 0, base_z, rng)
+    build_residential_block(world, *district_positions["residential"], base_z, rng, unit_count=7)
+    build_industrial_district(world, *district_positions["industrial"], base_z, rng)
+    build_agricultural_district(world, *district_positions["agricultural"], base_z, rng)
+    build_academic_district(world, *district_positions["academic"], base_z, rng)
+    build_military_district(world, *district_positions["military"], base_z, rng)
 
-    build_farm_complex(world, 0, -80, base_z, rng, rows=8, cols=12)
-    build_farm_complex(world, -80, 70, base_z, rng, rows=6, cols=8)
-    build_farm_complex(world, 80, 70, base_z, rng, rows=6, cols=8)
+    build_storage_warehouse(world, -60, 0, base_z, rng)
+    build_storage_warehouse(world, 60, 0, base_z, rng)
 
-    sm1 = build_smeltery(world, -45, -45, base_z, rng)
-    sm2 = build_smeltery(world, 45, -45, base_z, rng)
+    for name, (dx, dy) in district_positions.items():
+        build_road(world, 0, 0, dx, dy, ground_z + 1, width=5, material="path")
 
-    build_library(world, -45, 45, base_z, rng)
-    build_barracks(world, 45, 45, base_z, rng, units=4)
+    build_road(world, -150, -150, 150, -150, ground_z + 1, width=4)
+    build_road(world, -150, 150, 150, 150, ground_z + 1, width=4)
+    build_road(world, -150, -150, -150, 150, ground_z + 1, width=4)
+    build_road(world, 150, -150, 150, 150, ground_z + 1, width=4)
 
-    build_watchtower(world, 0, -95, base_z, height=26, radius=3)
-    build_watchtower(world, 0, 95, base_z, height=26, radius=3)
+    build_road(world, 0, 0, -60, 0, ground_z + 1, width=4)
+    build_road(world, 0, 0, 60, 0, ground_z + 1, width=4)
 
-    # roads connecting every facility back to the central plaza
-    build_road(world, 0, 0, 0, 25, ground_z + 1, width=4)
-    build_road(world, 0, 0, -70, 0, ground_z + 1, width=4)
-    build_road(world, 0, 0, 70, 0, ground_z + 1, width=4)
-    build_road(world, 0, 0, 0, -75, ground_z + 1, width=4)
-    build_road(world, 0, -75, -80, 60, ground_z + 1, width=3)
-    build_road(world, 0, -75, 80, 60, ground_z + 1, width=3)
-    build_road(world, -70, 0, -45, -45, ground_z + 1, width=3)
-    build_road(world, 70, 0, 45, -45, ground_z + 1, width=3)
-    build_road(world, -70, 0, -45, 45, ground_z + 1, width=3)
-    build_road(world, 70, 0, 45, 45, ground_z + 1, width=3)
-    build_road(world, 0, 0, 0, -95, ground_z + 1, width=4)
-    build_road(world, 0, 0, 0, 95, ground_z + 1, width=4)
+    sky_z = base_z + 20
+    build_sky_bridge(world, 0, 0, -150, -150, sky_z, width=3)
+    build_sky_bridge(world, 0, 0, 150, -150, sky_z, width=3)
+    build_sky_bridge(world, 0, 0, 0, 170, sky_z, width=3)
+    build_sky_bridge(world, 0, 0, -150, 150, sky_z, width=3)
+    build_sky_bridge(world, 0, 0, 150, 150, sky_z, width=3)
 
-    # a raised bridge linking the two smelteries over the plaza approach
-    build_bridge(world, -45, -45, 45, -45, base_z + 6, width=3)
+    build_utility_tunnel(world, 0, 0, -60, 0, ground_z - 4, height=3, width=3)
+    build_utility_tunnel(world, 0, 0, 60, 0, ground_z - 4, height=3, width=3)
+    build_utility_tunnel(world, 0, 0, 0, 170, ground_z - 4, height=3, width=3)
 
-    # underground utility tunnels linking command center to warehouses
-    build_utility_tunnel(world, 0, 20, -70, 5, ground_z - 4, height=3, width=3)
-    build_utility_tunnel(world, 0, 20, 70, 5, ground_z - 4, height=3, width=3)
 
     faces = emit_to_blender(world)
-    print(f"Minecraft Megabase: {len(world.voxels)} voxels -> {faces} faces")
+    print(f"Ultra-Mega-Base: {len(world.voxels)} voxels -> {faces} faces")
     return world
 
 

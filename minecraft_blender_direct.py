@@ -433,11 +433,31 @@ def build_multistorey_building(world, cx, cy, base_z, width, depth, floors,
 # Named base facilities (all grounded, all detailed, all connected)
 # ---------------------------------------------------------------------------
 
-def build_keep(world, cx, cy, base_z, width=44, depth=44, floors=6, floor_height=5, rng=None):
-    """The core structure of the base: a single massive fortified keep.
-    Ground floor is the crafting/control hall, upper floors are armories
-    and lookout levels, roof carries an observation spire. This is the
-    heart everything else physically attaches to."""
+def build_crenellations(world, x0, y0, x1, y1, z, material="cobblestone", period=2):
+    """A true alternating battlement pattern along a rectangle's rim:
+    every other position along the rim gets a raised merlon block."""
+    xa, xb = sorted((x0, x1))
+    ya, yb = sorted((y0, y1))
+    i = 0
+    for x in range(xa, xb + 1):
+        if i % period == 0:
+            world.set(x, ya, z, material)
+            world.set(x, yb, z, material)
+        i += 1
+    i = 0
+    for y in range(ya, yb + 1):
+        if i % period == 0:
+            world.set(xa, y, z, material)
+            world.set(xb, y, z, material)
+        i += 1
+
+
+def build_keep(world, cx, cy, base_z, width=60, depth=60, floors=11, floor_height=5, rng=None):
+    """The core structure of the base: a single massive, imposing
+    fortified keep. Ground floor is the crafting/control hall, upper
+    floors are armories and lookout levels, a stepped-back gold-trimmed
+    crown roof with battlements, topped by a tall banner spire. This is
+    the heart everything else physically attaches to."""
     if rng is None:
         rng = random.Random(7)
 
@@ -461,11 +481,24 @@ def build_keep(world, cx, cy, base_z, width=44, depth=44, floors=6, floor_height
 
         for px, py in ((x0, y0), (x1, y0), (x0, y1), (x1, y1)):
             build_pillar(world, px, py, z0, z1, material="iron_block")
+            world.set(px, py, z1, "gold_block")
+
+        # gold banding every third floor for a fancier, tiered look
+        if floor % 3 == 0:
+            for x in range(x0, x1 + 1):
+                world.set(x, y0, z0, "gold_block")
+                world.set(x, y1, z0, "gold_block")
+            for y in range(y0, y1 + 1):
+                world.set(x0, y, z0, "gold_block")
+                world.set(x1, y, z0, "gold_block")
 
         if floor == 0:
             build_door_gap(world, cx, y0, z0, height=3)
             build_door_gap(world, cx - 1, y0, z0, height=3)
             build_door_gap(world, cx + 1, y0, z0, height=3)
+            for gx in range(cx - 2, cx + 3):
+                world.set(gx, y0 - 1, z0 - 1, "gold_block")
+                world.set(gx, y0 - 2, z0 - 1, "quartz")
             lay_carpet(world, x0, y0, x1, y1, z0, "carpet_red")
             furnish_workshop(world, x0, y0, x1, y1, z0 + 1, rng)
         elif floor == 1:
@@ -483,25 +516,41 @@ def build_keep(world, cx, cy, base_z, width=44, depth=44, floors=6, floor_height
         place_lanterns(world, x0, y0, x1, y1, z1, spacing=6)
 
     roof_z = base_z + floors * floor_height
-    build_flat_roof(world, x0, y0, x1, y1, roof_z, material="stone", trim_material="iron_block")
+    build_flat_roof(world, x0, y0, x1, y1, roof_z, material="stone", trim_material="gold_block")
+    build_crenellations(world, x0, y0, x1, y1, roof_z + 1, material="cobblestone", period=2)
 
-    spire_w = 10
+    # stepped-back second tier for visual grandeur
+    tier2_w, tier2_d = width - 16, depth - 16
+    tx0, tx1 = cx - tier2_w // 2, cx + tier2_w // 2
+    ty0, ty1 = cy - tier2_d // 2, cy + tier2_d // 2
+    tier2_height = 4
+    for z in range(roof_z + 1, roof_z + 1 + tier2_height):
+        world.fill_rect_outline(tx0, ty0, z, tx1, ty1, "quartz")
+    tier2_top = roof_z + 1 + tier2_height
+    build_flat_roof(world, tx0, ty0, tx1, ty1, tier2_top, material="quartz", trim_material="gold_block")
+    build_crenellations(world, tx0, ty0, tx1, ty1, tier2_top + 1, material="gold_block", period=2)
+
+    spire_w = 12
     sx0, sx1 = cx - spire_w // 2, cx + spire_w // 2
     sy0, sy1 = cy - spire_w // 2, cy + spire_w // 2
-    spire_height = 14
-    for z in range(roof_z + 1, roof_z + 1 + spire_height):
+    spire_height = 22
+    for z in range(tier2_top + 1, tier2_top + 1 + spire_height):
         world.fill_rect_outline(sx0, sy0, z, sx1, sy1, "cobblestone")
-        if (z - roof_z) % 3 == 0:
+        if (z - tier2_top) % 3 == 0:
             for angle_deg in range(0, 360, 45):
                 angle = math.radians(angle_deg)
                 gx = cx + int(round((spire_w // 2 - 1) * math.cos(angle)))
                 gy = cy + int(round((spire_w // 2 - 1) * math.sin(angle)))
                 world.set(gx, gy, z, "glass_pane")
-    spire_top = roof_z + 1 + spire_height
-    build_flat_roof(world, sx0, sy0, sx1, sy1, spire_top, material="quartz", trim_material="iron_block")
-    build_pillar(world, cx, cy, spire_top, spire_top + 4, material="iron_block", cap_material="lantern")
+        if (z - tier2_top) % 6 == 0:
+            for x in range(sx0, sx1 + 1):
+                world.set(x, sy0, z, "gold_block")
+                world.set(x, sy1, z, "gold_block")
+    spire_top = tier2_top + 1 + spire_height
+    build_flat_roof(world, sx0, sy0, sx1, sy1, spire_top, material="quartz", trim_material="gold_block")
+    build_pillar(world, cx, cy, spire_top, spire_top + 6, material="gold_block", cap_material="lantern")
 
-    return x0, y0, x1, y1, roof_z, spire_top + 4
+    return x0, y0, x1, y1, roof_z, spire_top + 6
 
 
 def build_storage_vault_wing(world, keep_x0, keep_y0, keep_x1, keep_y1, base_z, rng,
@@ -719,7 +768,7 @@ def build_nether_portal_room(world, cx, cy, base_z, rng):
     return x0, y0, x1, y1
 
 
-def build_watchtower(world, cx, cy, base_z, height=22, radius=3, rng=None):
+def build_watchtower(world, cx, cy, base_z, height=30, radius=4, rng=None):
     for z in range(base_z, base_z + height):
         for angle_deg in range(0, 360, 20):
             angle = math.radians(angle_deg)
@@ -733,6 +782,12 @@ def build_watchtower(world, cx, cy, base_z, height=22, radius=3, rng=None):
             for s in range(steps + 1):
                 t = s / steps
                 world.set(int(round(x + (x2 - x) * t)), int(round(y + (y2 - y) * t)), z, "cobblestone")
+        if (z - base_z) % 5 == 0:
+            for angle_deg in range(0, 360, 20):
+                angle = math.radians(angle_deg)
+                x = cx + int(round(radius * math.cos(angle)))
+                y = cy + int(round(radius * math.sin(angle)))
+                world.set(x, y, z, "gold_block")
 
     for z in range(base_z, base_z + height, 6):
         for angle_deg in range(0, 360, 15):
@@ -747,50 +802,85 @@ def build_watchtower(world, cx, cy, base_z, height=22, radius=3, rng=None):
             dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
             if dist <= radius + 1:
                 world.set(x, y, top, "quartz")
+    build_crenellations(world, cx - radius - 1, cy - radius - 1, cx + radius + 1, cy + radius + 1,
+                         top + 1, material="cobblestone", period=2)
     for x in range(cx - radius - 1, cx + radius + 2):
         for y in range(cy - radius - 1, cy + radius + 2):
             dist = math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
             if dist <= radius + 1 and (abs(x - cx) == radius + 1 or abs(y - cy) == radius + 1 or dist >= radius):
-                for z in range(top + 1, top + 3):
-                    world.set(x, y, z, "cobblestone")
-    world.set(cx, cy, top + 4, "lantern")
+                world.set(x, y, top + 1, "cobblestone")
+    world.set(cx, cy, top + 3, "lantern")
     return top
 
 
-def build_perimeter_wall(world, cx, cy, half_w, half_d, base_z, height=10, gate_width=8, ring="cobblestone"):
+def build_perimeter_wall(world, cx, cy, half_w, half_d, base_z, height=14, gate_width=10,
+                          ring="cobblestone", thickness=2, tower_height_bonus=16, tower_radius=4):
+    """A thick, defensible curtain wall: double-block-thick masonry,
+    a raised wall-walk with real alternating battlements, gold banding,
+    and oversized corner watchtowers."""
     x0, x1 = cx - half_w, cx + half_w
     y0, y1 = cy - half_d, cy + half_d
 
-    for x in range(x0, x1 + 1):
-        if abs(x - cx) > gate_width // 2:
+    for t in range(thickness):
+        for x in range(x0 - t, x1 + t + 1):
+            if abs(x - cx) > gate_width // 2:
+                for z in range(base_z, base_z + height):
+                    world.set(x, y0 - t, z, ring)
             for z in range(base_z, base_z + height):
-                world.set(x, y0, z, ring)
-        for z in range(base_z, base_z + height):
-            world.set(x, y1, z, ring)
+                world.set(x, y1 + t, z, ring)
+        for y in range(y0 - t, y1 + t + 1):
+            for z in range(base_z, base_z + height):
+                world.set(x0 - t, y, z, ring)
+                world.set(x1 + t, y, z, ring)
 
-    for y in range(y0, y1 + 1):
-        for z in range(base_z, base_z + height):
-            world.set(x0, y, z, ring)
-            world.set(x1, y, z, ring)
+    wx0, wy0, wx1, wy1 = x0 - (thickness - 1), y0 - (thickness - 1), x1 + (thickness - 1), y1 + (thickness - 1)
+    build_crenellations(world, wx0, wy0, wx1, wy1, base_z + height, material="cobblestone", period=2)
 
-    for x in range(x0, x1 + 1, 6):
-        for z in range(base_z + height - 2, base_z + height):
-            world.set(x, y0, z, "brick")
-            world.set(x, y1, z, "brick")
-    for y in range(y0, y1 + 1, 6):
-        for z in range(base_z + height - 2, base_z + height):
-            world.set(x0, y, z, "brick")
-            world.set(x1, y, z, "brick")
+    for x in range(x0, x1 + 1, 8):
+        for z in range(base_z + height - 4, base_z + height - 2):
+            world.set(x, y0, z, "gold_block")
+            world.set(x, y1, z, "gold_block")
+    for y in range(y0, y1 + 1, 8):
+        for z in range(base_z + height - 4, base_z + height - 2):
+            world.set(x0, y, z, "gold_block")
+            world.set(x1, y, z, "gold_block")
 
     for gx in range(cx - gate_width // 2, cx + gate_width // 2 + 1):
-        for z in range(base_z + height, base_z + height + 2):
+        for z in range(base_z + height, base_z + height + 3):
             world.set(gx, y0, z, "iron_block")
+    for gz in range(base_z + 1, base_z + 6):
+        for gx in range(cx - gate_width // 2 + 1, cx + gate_width // 2, 2):
+            world.set(gx, y0, gz, "iron_block")
+            world.set(gx, y0 + thickness - 1, gz, "iron_block")
 
     for corner_x in (x0, x1):
         for corner_y in (y0, y1):
-            build_watchtower(world, corner_x, corner_y, base_z, height=height + 12, radius=3)
+            build_watchtower(world, corner_x, corner_y, base_z, height=height + tower_height_bonus,
+                              radius=tower_radius)
 
-    return x0, y0, x1, y1
+    return wx0, wy0, wx1, wy1
+
+
+def build_gatehouse(world, cx, gate_y, base_z, gate_width, height, rng=None):
+    """A grand flanking gatehouse straddling the main gate: two tall
+    towers linked by a battlemented bridge span directly over the gate,
+    gold-trimmed, unmistakably the front door of a fortress."""
+    tower_radius = 5
+    left_x = cx - gate_width // 2 - tower_radius - 1
+    right_x = cx + gate_width // 2 + tower_radius + 1
+    tower_top_left = build_watchtower(world, left_x, gate_y, base_z, height=height + 10, radius=tower_radius)
+    tower_top_right = build_watchtower(world, right_x, gate_y, base_z, height=height + 10, radius=tower_radius)
+
+    span_z0 = base_z + height
+    span_z1 = span_z0 + 3
+    for z in range(span_z0, span_z1 + 1):
+        for x in range(left_x, right_x + 1):
+            world.set(x, gate_y, z, "cobblestone")
+    build_crenellations(world, left_x, gate_y - 1, right_x, gate_y + 1, span_z1 + 1, material="gold_block", period=2)
+    for x in range(left_x, right_x + 1, 4):
+        world.set(x, gate_y, span_z0, "gold_block")
+
+    return left_x, right_x, span_z1
 
 
 def build_farm_outside(world, cx, cy, base_z, rng, rows=10, cols=14):
@@ -819,6 +909,29 @@ def build_farm_outside(world, cx, cy, base_z, rng, rows=10, cols=14):
     return x0, y0, x1, y1
 
 
+def build_moat(world, cx, cy, half_w, half_d, base_z, width=6, depth=4, gate_width=14):
+    """A water-filled defensive trench ring just outside a wall, with a
+    causeway gap left open at the south gate approach so the access road
+    can cross without a floating bridge structure."""
+    ox0, ox1 = cx - half_w, cx + half_w
+    oy0, oy1 = cy - half_d, cy + half_d
+    ix0, ix1 = ox0 - width, ox1 + width
+    iy0, iy1 = oy0 - width, oy1 + width
+
+    for x in range(ix0, ix1 + 1):
+        for y in range(iy0, iy1 + 1):
+            on_ring = not (ox0 < x < ox1 and oy0 < y < oy1) and (ix0 <= x <= ix1 and iy0 <= y <= iy1)
+            if not on_ring:
+                continue
+            if y <= oy0 and abs(x - cx) <= gate_width // 2:
+                continue
+            for z in range(base_z - depth, base_z):
+                world.set(x, y, z, "stone")
+            world.set(x, y, base_z - 1, "water")
+
+    return ix0, iy0, ix1, iy1
+
+
 def build_utility_tunnel(world, x1, y1, x2, y2, base_z, height=3, width=3, material="concrete"):
     steps = max(abs(x2 - x1), abs(y2 - y1))
     if steps == 0:
@@ -838,19 +951,21 @@ def build_utility_tunnel(world, x1, y1, x2, y2, base_z, height=3, width=3, mater
 
 
 # ---------------------------------------------------------------------------
-# Master assembly — ONE fused Minecraft base, not a city
+# Master assembly — ONE fused, fortified, imposing Minecraft base
 #
-# A single keep at the center with four functional wings physically
-# fused to its four faces via short connecting corridors (storage vault
-# west, smeltery east, covered farm north, mob grinder south), a nether
-# portal room tucked against the keep's southeast corner, an outside
-# support farm, and one tight perimeter wall with corner watchtowers
-# around the whole fused footprint. No detached houses, no roads to
-# faraway districts — everything a player's base actually needs, built
-# as one continuous structure.
+# A tall gold-trimmed keep at the center with four functional wings
+# physically fused to its four faces (storage vault west, smeltery east,
+# covered farm north, mob grinder south), a nether portal room tucked
+# against the keep, an inner curtain wall wrapping the fused footprint
+# tightly, a second much larger outer curtain wall further out (both
+# thick, battlemented, gold-banded, with oversized corner watchtowers),
+# a water-filled moat ring outside the outer wall, and a grand flanking
+# gatehouse straddling the single approach road. Everything either sits
+# on the ground or is carved into it — nothing floats, and the double
+# wall + moat + gatehouse make it genuinely defensible.
 # ---------------------------------------------------------------------------
 
-def generate(width=220, depth=220, ground_z=0):
+def generate(width=420, depth=440, ground_z=0):
     world = VoxelWorld()
     rng = random.Random(1337)
     base_z = ground_z + 1
@@ -858,7 +973,7 @@ def generate(width=220, depth=220, ground_z=0):
     build_flat_terrain(world, width, depth, ground_z)
 
     keep_x0, keep_y0, keep_x1, keep_y1, keep_roof, keep_spire = build_keep(
-        world, 0, 0, base_z, width=44, depth=44, floors=6, floor_height=5, rng=rng
+        world, 0, 0, base_z, width=60, depth=60, floors=11, floor_height=5, rng=rng
     )
 
     build_storage_vault_wing(world, keep_x0, keep_y0, keep_x1, keep_y1, base_z, rng,
@@ -872,14 +987,25 @@ def generate(width=220, depth=220, ground_z=0):
 
     build_nether_portal_room(world, keep_x1 - 8, keep_y0 - 14, base_z, rng)
 
-    build_farm_outside(world, 0, -140, base_z, rng, rows=10, cols=14)
-    build_road(world, 0, keep_y0 - 60, 0, -140, ground_z + 1, width=4)
+    inner_half_w, inner_half_d = 118, 118
+    build_perimeter_wall(world, 0, 0, inner_half_w, inner_half_d, ground_z + 1,
+                          height=14, gate_width=10, thickness=2,
+                          tower_height_bonus=16, tower_radius=4)
 
-    half_w = 100
-    half_d = 105
-    build_perimeter_wall(world, 0, 0, half_w, half_d, ground_z + 1, height=11, gate_width=8)
+    outer_half_w, outer_half_d = 165, 175
+    ox0, oy0, ox1, oy1 = build_perimeter_wall(world, 0, 0, outer_half_w, outer_half_d, ground_z + 1,
+                                               height=18, gate_width=14, thickness=3,
+                                               tower_height_bonus=22, tower_radius=5)
 
-    build_utility_tunnel(world, 0, 0, 0, -100, ground_z - 4, height=3, width=3)
+    build_moat(world, 0, 0, outer_half_w, outer_half_d, ground_z + 1, width=7, depth=4, gate_width=14)
+
+    build_gatehouse(world, 0, -outer_half_d, ground_z + 1, gate_width=14, height=18, rng=rng)
+
+    build_farm_outside(world, 0, -260, base_z, rng, rows=12, cols=16)
+    build_road(world, 0, -outer_half_d - 12, 0, -260, ground_z + 1, width=5)
+    build_road(world, 0, -inner_half_d, 0, -outer_half_d, ground_z + 1, width=5)
+
+    build_utility_tunnel(world, 0, 0, 0, -180, ground_z - 4, height=3, width=3)
 
     faces = emit_to_blender(world)
     print(f"Minecraft Basis: {len(world.voxels)} voxels -> {faces} faces")

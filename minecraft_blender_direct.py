@@ -1,172 +1,197 @@
 import bpy
 import math
 import random
-from enum import Enum
-from dataclasses import dataclass
 
-class BlockType(Enum):
-    STONE = 1
-    DIRT = 5
-    GRASS_BLOCK = 7
-    WATER = 29
-    OAK_LOG = 11
-    OAK_LEAVES = 19
-    SAND = 25
-    OBSIDIAN = 48
-    DARK_OAK_PLANKS = 37
+PALETTE = {
+    "stone":   (0.42, 0.42, 0.44, 1.0),
+    "dirt":    (0.36, 0.25, 0.16, 1.0),
+    "grass":   (0.25, 0.52, 0.18, 1.0),
+    "obsidian": (0.09, 0.05, 0.14, 1.0),
+    "planks":  (0.33, 0.22, 0.12, 1.0),
+    "log":     (0.40, 0.29, 0.16, 1.0),
+    "leaves":  (0.16, 0.42, 0.16, 1.0),
+    "water":   (0.16, 0.40, 0.72, 0.55),
+    "sand":    (0.80, 0.72, 0.46, 1.0),
+}
 
-@dataclass
-class Vector3:
-    x: float = 0
-    y: float = 0
-    z: float = 0
+FACES = (
+    ((-1, 0, 0), ((0, 0, 0), (0, 0, 1), (0, 1, 1), (0, 1, 0))),
+    ((1, 0, 0),  ((1, 0, 0), (1, 1, 0), (1, 1, 1), (1, 0, 1))),
+    ((0, -1, 0), ((0, 0, 0), (1, 0, 0), (1, 0, 1), (0, 0, 1))),
+    ((0, 1, 0),  ((0, 1, 0), (0, 1, 1), (1, 1, 1), (1, 1, 0))),
+    ((0, 0, -1), ((0, 0, 0), (0, 1, 0), (1, 1, 0), (1, 0, 0))),
+    ((0, 0, 1),  ((0, 0, 1), (1, 0, 1), (1, 1, 1), (0, 1, 1))),
+)
 
-    def __add__(self, other):
-        return Vector3(self.x + other.x, self.y + other.y, self.z + other.z)
 
-    def __mul__(self, scalar):
-        return Vector3(self.x * scalar, self.y * scalar, self.z * scalar)
-
-    def distance(self, other):
-        return math.sqrt((self.x - other.x)**2 + (self.y - other.y)**2 + (self.z - other.z)**2)
-
-class SimpleMinecraftGenerator:
+class VoxelWorld:
     def __init__(self):
-        self.blocks = {}
-        self.materials = {}
+        self.voxels = {}
 
-    def create_material(self, name, color):
+    def set(self, x, y, z, material):
+        self.voxels[(int(x), int(y), int(z))] = material
+
+    def fill_box(self, x0, y0, z0, x1, y1, z1, material):
+        for x in range(x0, x1 + 1):
+            for y in range(y0, y1 + 1):
+                for z in range(z0, z1 + 1):
+                    self.voxels[(x, y, z)] = material
+
+    def build_mesh_data(self):
+        solid = self.voxels
+        by_material = {}
+
+        for (x, y, z), material in solid.items():
+            for normal, corners in FACES:
+                nx, ny, nz = x + normal[0], y + normal[1], z + normal[2]
+                if (nx, ny, nz) in solid:
+                    continue
+                bucket = by_material.setdefault(material, ([], [], {}))
+                verts, faces, index = bucket
+                face = []
+                for cx, cy, cz in corners:
+                    key = (x + cx, y + cy, z + cz)
+                    vi = index.get(key)
+                    if vi is None:
+                        vi = len(verts)
+                        index[key] = vi
+                        verts.append(key)
+                    face.append(vi)
+                faces.append(tuple(face))
+
+        return {m: (v, f) for m, (v, f, _) in by_material.items()}
+
+
+def get_material(name):
+    mat = bpy.data.materials.get(name)
+    if mat is None:
         mat = bpy.data.materials.new(name=name)
-        mat.use_nodes = True
-        bsdf = mat.node_tree.nodes["Principled BSDF"]
+    mat.use_nodes = True
+    bsdf = mat.node_tree.nodes.get("Principled BSDF")
+    color = PALETTE.get(name, (0.5, 0.5, 0.5, 1.0))
+    if bsdf is not None:
         bsdf.inputs["Base Color"].default_value = color
-        return mat
+        if color[3] < 1.0:
+            if "Alpha" in bsdf.inputs:
+                bsdf.inputs["Alpha"].default_value = color[3]
+            try:
+                mat.blend_method = 'BLEND'
+            except TypeError:
+                pass
+    mat.diffuse_color = color
+    return mat
 
-    def create_cube(self, x, y, z, material):
-        bpy.ops.mesh.primitive_cube_add(size=1, location=(x, y, z))
-        obj = bpy.context.active_object
-        obj.data.materials.append(material)
-        return obj
 
-    def generate_flat_terrain(self, width=50, depth=50, height_base=5):
-        bpy.ops.object.select_all(action='SELECT')
-        bpy.ops.object.delete()
+def clear_generated(collection_name="Minecraft"):
+    existing = bpy.data.collections.get(collection_name)
+    if existing is None:
+        return
+    for obj in list(existing.objects):
+        mesh = obj.data
+        bpy.data.objects.remove(obj, do_unlink=True)
+        if mesh is not None and mesh.users == 0:
+            bpy.data.meshes.remove(mesh)
+    bpy.data.collections.remove(existing)
 
-        print("Generating terrain...")
 
-        grass_mat = self.create_material("grass", (0.2, 0.6, 0.2, 1.0))
-        dirt_mat = self.create_material("dirt", (0.4, 0.3, 0.2, 1.0))
-        stone_mat = self.create_material("stone", (0.5, 0.5, 0.5, 1.0))
+def emit_to_blender(world, collection_name="Minecraft"):
+    clear_generated(collection_name)
 
-        for x in range(-width//2, width//2, 2):
-            for z in range(-depth//2, depth//2, 2):
-                for y in range(0, height_base):
-                    if y < height_base - 1:
-                        mat = stone_mat if y < 2 else dirt_mat
-                    else:
-                        mat = grass_mat
+    collection = bpy.data.collections.new(collection_name)
+    bpy.context.scene.collection.children.link(collection)
 
-                    self.create_cube(x, y, z, mat)
+    total_faces = 0
+    for material_name, (verts, faces) in world.build_mesh_data().items():
+        mesh = bpy.data.meshes.new(material_name)
+        mesh.from_pydata([(float(a), float(b), float(c)) for a, b, c in verts], [], faces)
+        mesh.validate()
+        mesh.update()
+        mesh.materials.append(get_material(material_name))
 
-        print(f"✓ Terrain generated ({width}x{depth}x{height_base} blocks)")
+        obj = bpy.data.objects.new(material_name, mesh)
+        collection.objects.link(obj)
+        total_faces += len(faces)
 
-    def generate_mega_base(self, center_x=0, center_z=0, size=30):
-        print("Generating mega base...")
+    return total_faces
 
-        obsidian_mat = self.create_material("obsidian", (0.1, 0.0, 0.2, 1.0))
-        planks_mat = self.create_material("dark_oak_planks", (0.4, 0.3, 0.15, 1.0))
 
-        base_y = 5
+def build_terrain(world, width, depth, thickness):
+    for x in range(-width // 2, width // 2):
+        for y in range(-depth // 2, depth // 2):
+            for z in range(0, thickness):
+                if z < thickness - 3:
+                    material = "stone"
+                elif z < thickness - 1:
+                    material = "dirt"
+                else:
+                    material = "grass"
+                world.set(x, y, z, material)
 
-        for x in range(center_x - size, center_x + size, 1):
-            for z in range(center_z - size, center_z + size, 1):
-                dist = math.sqrt((x - center_x)**2 + (z - center_z)**2)
 
-                if dist <= size:
-                    self.create_cube(x, base_y, z, obsidian_mat)
+def build_mega_base(world, cx, cy, ground_z, radius, wall_height):
+    for x in range(cx - radius, cx + radius + 1):
+        for y in range(cy - radius, cy + radius + 1):
+            dist = math.hypot(x - cx, y - cy)
+            if dist > radius:
+                continue
+            world.set(x, y, ground_z, "obsidian")
+            if dist > radius - 1.5:
+                for z in range(ground_z + 1, ground_z + wall_height + 1):
+                    world.set(x, y, z, "planks")
 
-                    if dist > size - 2:
-                        for y in range(base_y + 1, base_y + 8):
-                            self.create_cube(x, y, z, planks_mat)
 
-        print(f"✓ Mega base generated ({size*2}x{size*2} blocks)")
+def build_forest(world, cx, cy, ground_z, radius, tree_count, rng):
+    for _ in range(tree_count):
+        angle = rng.uniform(0, 2 * math.pi)
+        dist = rng.uniform(0, radius)
+        tx = cx + int(dist * math.cos(angle))
+        ty = cy + int(dist * math.sin(angle))
+        height = rng.randint(5, 9)
 
-    def generate_forest(self, center_x=0, center_z=0, radius=30, tree_count=20):
-        print("Generating forest...")
+        for z in range(ground_z, ground_z + height):
+            world.set(tx, ty, z, "log")
 
-        log_mat = self.create_material("oak_log", (0.5, 0.4, 0.2, 1.0))
-        leaf_mat = self.create_material("oak_leaves", (0.2, 0.5, 0.2, 1.0))
+        crown = height // 3 + 1
+        top = ground_z + height
+        for dx in range(-crown, crown + 1):
+            for dy in range(-crown, crown + 1):
+                for dz in range(-crown, crown + 1):
+                    if math.sqrt(dx * dx + dy * dy + dz * dz) > crown:
+                        continue
+                    if rng.random() < 0.25:
+                        continue
+                    pos = (tx + dx, ty + dy, top + dz)
+                    if pos not in world.voxels:
+                        world.set(pos[0], pos[1], pos[2], "leaves")
 
-        random.seed(42)
 
-        for _ in range(tree_count):
-            angle = random.uniform(0, 2 * math.pi)
-            dist = random.uniform(0, radius)
-            tx = center_x + int(dist * math.cos(angle))
-            tz = center_z + int(dist * math.sin(angle))
+def build_lake(world, cx, cy, surface_z, radius, depth):
+    for x in range(cx - radius, cx + radius + 1):
+        for y in range(cy - radius, cy + radius + 1):
+            dist = math.hypot(x - cx, y - cy)
+            if dist > radius:
+                continue
+            basin = int(depth * (1.0 - dist / radius)) + 1
+            for z in range(surface_z - basin, surface_z + 1):
+                world.set(x, y, z, "water")
+            for z in range(surface_z - basin - 1, surface_z - basin):
+                world.set(x, y, z, "sand")
 
-            tree_height = random.randint(6, 12)
 
-            for y in range(5, 5 + tree_height):
-                self.create_cube(tx, y, tz, log_mat)
+def generate(width=80, depth=80, thickness=6):
+    rng = random.Random(42)
+    world = VoxelWorld()
 
-            foliage_radius = tree_height // 3
-            for fx in range(tx - foliage_radius, tx + foliage_radius + 1):
-                for fz in range(tz - foliage_radius, tz + foliage_radius + 1):
-                    for fy in range(5 + tree_height - foliage_radius, 5 + tree_height + 2):
-                        dist_to_center = math.sqrt((fx - tx)**2 + (fz - tz)**2 + (fy - 5 - tree_height) ** 2)
-                        if dist_to_center <= foliage_radius and random.random() > 0.3:
-                            self.create_cube(fx, fy, fz, leaf_mat)
+    ground_z = thickness - 1
 
-        print(f"✓ Forest generated ({tree_count} trees)")
+    build_terrain(world, width, depth, thickness)
+    build_mega_base(world, 0, 0, ground_z, radius=15, wall_height=8)
+    build_forest(world, -28, 0, ground_z + 1, radius=12, tree_count=14, rng=rng)
+    build_lake(world, 28, 0, surface_z=ground_z, radius=12, depth=3)
 
-    def generate_lake(self, center_x=0, center_z=0, radius=20):
-        print("Generating lake...")
+    faces = emit_to_blender(world)
+    print("Minecraft world: {} voxels -> {} faces".format(len(world.voxels), faces))
+    return world
 
-        water_mat = self.create_material("water", (0.2, 0.5, 0.8, 0.7))
 
-        for x in range(int(center_x - radius), int(center_x + radius) + 1):
-            for z in range(int(center_z - radius), int(center_z + radius) + 1):
-                dist = math.sqrt((x - center_x)**2 + (z - center_z)**2)
-                if dist <= radius:
-                    for y in range(3, 6):
-                        self.create_cube(x, y, z, water_mat)
-
-        print(f"✓ Lake generated (radius {radius})")
-
-if __name__ == "__main__":
-    try:
-        generator = SimpleMinecraftGenerator()
-
-        print("=" * 60)
-        print("MINECRAFT TERRAFORMING SYSTEM - BLENDER")
-        print("=" * 60)
-
-        print("\n[1/4] Generating flat terrain...")
-        generator.generate_flat_terrain(width=80, depth=80, height_base=6)
-
-        print("\n[2/4] Generating mega base...")
-        generator.generate_mega_base(center_x=0, center_z=0, size=15)
-
-        print("\n[3/4] Generating forest...")
-        generator.generate_forest(center_x=-40, center_z=0, radius=20, tree_count=15)
-
-        print("\n[4/4] Generating lake...")
-        generator.generate_lake(center_x=40, center_z=0, radius=15)
-
-        print("\n" + "=" * 60)
-        print("✓ GENERATION COMPLETE!")
-        print("=" * 60)
-        print("\nObjects created in your scene!")
-        print("You can now manipulate them in Blender.")
-
-    except Exception as e:
-        print(f"ERROR: {e}")
-        import traceback
-        traceback.print_exc()
-
-generator = SimpleMinecraftGenerator()
-generator.generate_flat_terrain(width=80, depth=80, height_base=6)
-generator.generate_mega_base(center_x=0, center_z=0, size=15)
-generator.generate_forest(center_x=-40, center_z=0, radius=20, tree_count=15)
-generator.generate_lake(center_x=40, center_z=0, radius=15)
+generate()
